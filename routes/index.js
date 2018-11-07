@@ -9,12 +9,14 @@ router.get('/', function (req, res, next) {
 
 router.get('/privacy', (req, res) => {
   res.render('privacy', data)
-})
+});
+
 router.get('/terms-and-conditions', (req, res) => {
   res.render('terms', data)
-})
+});
+
 router.get('/general-data-protection-regulation', (req, res) => {
   res.render('gdpr', data)
-})
+});
 
 module.exports = router;

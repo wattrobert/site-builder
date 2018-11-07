@@ -1,16 +1,20 @@
 {
     "meta": {
+        "title": "Site Builder",
+        "description": "Ultra-fast company websites for whoever needs 'em",
         "company": "Sitebuilder Inc.",
         "established": "2018",
         "founders": ["Mason Stedman", "Rob Watt"]
     },
     "header": {
-        "title": "Site Builder",
+        "brand": "Site Builder",
+        "title": "Welcome",
         "text": "Ultra-fast company websites for whoever needs 'em"
     },
-    "footer": {},
     "sections": [{
         "type": "product",
+        "id": "shop",
+        "name": "Shop",
         "title": "My First Product",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "price": 29.99,
@@ -22,6 +26,8 @@
         }
     }, {
         "type": "reviews",
+        "id": "reviews",
+        "name": "Testimonials",
         "title": "Hear it from the source",
         "text": "Read real testimonials from real customers all over the world!",
         "items": [{
@@ -35,6 +41,8 @@
         }]
     }, {
         "type": "pricing",
+        "id": "pricing",
+        "name": "Pricing",
         "title": "Flexible Pricing",
         "text": "Choose a tier that's right for your company",
         "offers": [{
@@ -115,6 +123,8 @@
         }]
     }, {
         "type": "contact",
+        "id": "contact-us",
+        "name": "Contact",
         "title": "Contact our team",
         "items": [{
             "type": "email",

@@ -3,6 +3,7 @@ extends layout
 block content
   each s, i in sections
     section(class="my-5 container")
+      a(class="anchor", name= s.id)
       if s.type === 'product'
         div(class="row align-items-center flex-column flex-nowrap flex-md-row")
           div(class="col-auto col-md-6")
