@@ -1,0 +1,91 @@
+extends layout
+
+block content
+  each s, i in sections
+    section(class="my-5 container")
+      if s.type === 'product'
+        div(class="row align-items-center flex-column flex-nowrap flex-md-row")
+          div(class="col-auto col-md-6")
+            figure
+              img(src= s.image, class="w-100")
+          div(class="col-auto col-md-6")
+            h3
+              span= s.title
+              small(class="text-success")  #{s.currency}#{s.price}
+            p= s.description
+            if s.button
+              div(class="row")
+                div(class="col-sm-2 col-md-4")
+                div(class="col col-sm-8 col-md-4 text-center")
+                  a(class="btn btn-outline-primary btn-block", target="_blank", href= s.button.link)= s.button.text
+      if s.type === 'pricing'
+        h4(class="text-center mb-4")= s.title
+          if s.text
+            br
+            small(class="text-muted")= s.text
+        div(class="row align-items-stretch justify-content-center")
+          each o in s.offers
+            div(class="col-sm-6 col-md-4 col-lg-3 mb-3")
+              div(class="card h-100")
+                div(class="card-header")
+                  h4(class="card-title text-center mb-0")
+                    if o.price
+                      span(class="text-success") $#{o.price}
+                      small(class="text-muted") /#{o.duration}
+                    else
+                      span(class="text-success")= o.title
+                div(class="card-body")
+                  p(class="card-text")
+                    ul(class="fa-ul")
+                      each f in o.features
+                        li
+                          span(class="fa-li")
+                            if f.active
+                              i(class="fas fa-check text-primary")
+                            else
+                              i(class="fas fa-times text-danger")
+                          span= f.name                            
+      if s.type === 'reviews'
+        if s.title
+          h4(class="mb-4")= s.title
+            if s.text
+              br
+              small(class="text-muted")= s.text
+        if s.items.length
+          ul(class="list-group mb-5")
+            each r in s.items
+              li(class="list-group-item")
+                blockquote(class="blockquote mb-0")
+                  p(class="mb-0 small")= r.text
+                  footer(class="blockquote-footer") 
+                    cite(title= r.source)= r.source
+      if s.type === 'contact'
+        if s.title
+          h4(class="mb-4")= s.title
+            if s.text
+              br
+              small(class="text-muted")= s.text
+        if s.items.length
+          div(class="row flex-column flex-md-row")
+            each c in s.items
+              div(class="col-auto mb-4")
+                if c.type === 'tel'
+                  span(title="Call #{c.value}")
+                    i(class="fas fa-phone")
+                    a(href='tel:#{c.country}#{c.value}')  #{c.value}
+                if c.type === 'email'
+                  span(title="Email #{c.value}")
+                    i(class="fas fa-envelope")
+                    a(href='mailto:#{c.value}')  #{c.value}
+                if c.type === 'address'
+                  span(title="Get directions")
+                    i(class="fas fa-map-marker-alt")
+                    a(href='https://www.google.com/maps/search/?api=1&query=#{c.street1} #{c.city} #{c.state} #{c.zip}', target="_blank")
+                      span  #{c.street1}
+                      if c.street2 
+                        span= c.street2 
+                      span #{c.city}, #{c.state} #{c.zip}
+    if i < sections.length - 1
+      hr
+
+      
