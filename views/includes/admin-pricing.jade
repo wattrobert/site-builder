@@ -1,0 +1,26 @@
+h4(class="text-center mb-4")= s.title
+  if s.text
+    br
+    small(class="text-muted")= s.text
+div(class="row align-items-stretch justify-content-center")
+  each o in s.offers
+    div(class="col-sm-6 col-md-4 col-lg-3 mb-3")
+      div(class="card h-100")
+        div(class="card-header")
+          h4(class="card-title text-center mb-0")
+            if o.price
+              span(class="text-success") $#{o.price}
+              small(class="text-muted") /#{o.duration}
+            else
+              span(class="text-success")= o.title
+        div(class="card-body")
+          p(class="card-text")
+            ul(class="fa-ul")
+              each f in o.features
+                li
+                  span(class="fa-li")
+                    if f.active
+                      i(class="fas fa-check text-primary")
+                    else
+                      i(class="fas fa-times text-danger")
+                  span= f.name

@@ -1,0 +1,24 @@
+fieldset(class="card mb-3")
+  a(class="card-header h4", href="#product", data-toggle="collapse", aria-expanded="false" aria-controls="product") Product
+  div(id="product", class="collapse")
+    div(class="card-body")
+      div(class="form-group row")
+        div(class="col")
+          label(for="product_title") Product Name
+          input(id="product_title", name="product.title", type="text", value= product.title, placeholder="Enter a name for your product", class="form-control", required)
+        div(class="col-sm-1")
+          label(for="product_currency") Currency
+          input(id="product_currency", name="product.currency", type="text", value= product.currency, placeholder="Enter a currency symbol", class="form-control", required)
+        div(class="col-sm-3")
+          label(for="product_price") Price
+          input(id="product_price", name="product.price", type="number", step="0.01" value= product.price, placeholder="Set a price for your product", class="form-control", required)
+      div(class="form-group")
+        label(for="product_description") Product Description
+        textarea(id="product_description", name="product.description", placeholder="Describe your product", class="form-control", required)= product.description
+      div(class="form-group row")
+        div(class="col")
+          label(for="product_button_text") Button Text
+          input(id="product_button_text", name="product.button.text", type="text", value= product.button.text, placeholder="Enter the text for your action button", class="form-control", required)
+        div(class="col")
+          label(for="product_button_link") Button Link
+          input(id="product_button_link", name="product.button.link", type="url", value= product.button.link, placeholder="Enter a url for your action button", class="form-control", required)

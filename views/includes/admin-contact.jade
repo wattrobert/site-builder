@@ -1,0 +1,25 @@
+if s.title
+  h4(class="mb-4")= s.title
+    if s.text
+      br
+      small(class="text-muted")= s.text
+if s.items.length
+  div(class="row flex-column flex-md-row")
+    each c in s.items
+      div(class="col-auto mb-4")
+        if c.type === 'tel'
+          span(title="Call #{c.value}")
+            i(class="fas fa-phone")
+            a(href='tel:#{c.country}#{c.value}')  #{c.value}
+        if c.type === 'email'
+          span(title="Email #{c.value}")
+            i(class="fas fa-envelope")
+            a(href='mailto:#{c.value}')  #{c.value}
+        if c.type === 'address'
+          span(title="Get directions")
+            i(class="fas fa-map-marker-alt")
+            a(href='https://www.google.com/maps/search/?api=1&query=#{c.street1} #{c.city} #{c.state} #{c.zip}', target="_blank")
+              span  #{c.street1}
+              if c.street2 
+                span= c.street2 
+              span #{c.city}, #{c.state} #{c.zip}

@@ -1,12 +1,13 @@
 extends layout
 
 block content
+  section(class="my-5 container")
+    a(class="anchor", name="product")
+    include ./includes/product.jade
+  hr
   each s, i in sections
     section(class="my-5 container")
       a(class="anchor", name= s.id)
-      
-      if s.type === 'product'
-        include ./includes/product.jade
         
       if s.type === 'pricing'
         include ./includes/pricing.jade           
