@@ -1,0 +1,30 @@
+extends adminIndex
+
+block content
+  form(method="POST", action="/api/config", enctype="application/x-www-form-urlencoded")
+    fieldset
+      legend Basic Information
+      div(class="form-group")
+        label(for="meta_title") Website Title
+        input(id="meta_title", name="meta.title", type="text", value= meta.title, placeholder="Enter a title for the website", class="form-control", required)
+      div(class="form-group")
+        label(for="meta_description") Website Description
+        textarea(id="meta_description", name="meta.description", placeholder="Enter short description for your company", class="form-control", required)= meta.description
+      div(class="form-group")
+        label(for="meta_company") Company Name
+        input(id="meta_company", name="meta.company", type="text", value= meta.company, placeholder="Enter a name for your company", class="form-control", required)
+      div(class="form-group")
+        label(for="meta_established") Established Year
+        input(id="meta_established", name="meta.established", type="number" value= meta.established, placeholder="Founding year", class="form-control", required)
+    fieldset
+      legend Header
+      div(class="form-group")
+        label(for="header_brand") Brand
+        input(id="header_brand", name="header.brand", type="text", value= header.brand, placeholder="Enter the brand name to be displayed in the top navigation", class="form-control", required)
+      div(class="form-group")
+        label(for="header_title") Header Title
+        input(id="header_title", name="header.title", type="text" value= header.title, placeholder="Enter the display title for the main jumbotron", class="form-control", required)
+      div(class="form-group")
+        label(for="header_text") Header Subtext
+        textarea(id="header_text", name="header.text", placeholder="Enter the subtext for the main jumbotron", class="form-control", required)= header.text
+    button(type="submit", class="btn btn-primary") Save Changes

@@ -12,7 +12,7 @@ html(class="h-100")
     script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js", integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy", crossorigin="anonymous")
 
   body(class="d-flex h-100 flex-column flex-nowrap")
-    nav(class="navbar navbar-light bg-light fixed-top")
+    nav(class="navbar navbar-dark bg-dark fixed-top")
       div(class="navbar-expand container")
         a(class="navbar-brand", href="#")= header.brand
         ul(class="navbar-nav mr-auto")
@@ -21,10 +21,15 @@ html(class="h-100")
           each s in sections
             li(class="nav-item")
               a(class="nav-link" href="/##{s.id}")= s.name
-    div(class="jumbotron text-center")
-      div(class="container")
-        h1(class="display-4")= header.title
-        p(class="lead")= header.text
+        div(class="form-inline")
+          a(tabindex class="btn btn-outline-light", href="/admin") Admin
+    if header
+      div(class="jumbotron text-center")
+        div(class="container")
+          if header.title
+            h1(class="display-4")= header.title
+          if header.text
+            p(class="lead")= header.text
     main(class="flex-grow-1")
       block content
     
