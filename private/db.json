@@ -12,6 +12,13 @@
   "header": {
     "brand": "My Site",
     "title": "Welcome To The Website!",
+    "style": {
+      "color": "#ffffff",
+      "background": {
+        "color": "#13ff00",
+        "image": "https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+      }
+    },
     "text": "Ultra-fast company websites for whoever needs 'em"
   },
   "product": {
@@ -19,7 +26,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "price": "25.99",
     "currency": "$",
-    "image": "/images/dummy_product.jpg",
+    "image": "https://express-site-builder.herokuapp.com/images/dummy_product.jpg",
     "button": {
       "text": "Buy Now",
       "link": "https://www.google.com"

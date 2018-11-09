@@ -24,7 +24,9 @@ html(class="h-100")
         div(class="form-inline")
           a(tabindex class="btn btn-outline-light", href="/admin") Admin
     if header
-      div(class="jumbotron text-center")
+      div(class="jumbotron text-center rounded-0", id="HEADER", 
+          style="text-shadow: #{header.style.background.image ? '0 2px 8px black' : ''}; color: #{header.style.color};")
+        div(class="background"  style="background-color: #{header.style.background.color}; background-image:url('#{header.style.background.image}')")
         div(class="container")
           if header.title
             h1(class="display-4")= header.title

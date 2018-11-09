@@ -6317,6 +6317,21 @@ body {
   body main section {
     position: relative; }
 
+#HEADER {
+  position: relative;
+  background-color: transparent; }
+  #HEADER > .background {
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(60%); }
+
 a.anchor {
   position: absolute;
   top: -5em; }
