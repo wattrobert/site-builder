@@ -21,7 +21,7 @@
     "currency": "$",
     "image": "/images/dummy_product.jpg",
     "button": {
-      "text": "But Now",
+      "text": "Buy Now",
       "link": "https://www.google.com"
     }
   },
