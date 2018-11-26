@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  div(class="jumbotron")
+    div(class="container")
+      h1(class="display-4") Product Admin
+      p(class="lead") Create and edit products that can be added to product sections
+  div(class="container")
+    div(class="row")
+      div(class="col-6 col-sm-4 col-md-3")
+        a(class="card h-100 bg-light text-dark", href="/admin/products/create")
+          div(class="card-body text-center d-flex flex-column justify-content-center")
+            h5(class="card-title")
+              i(class="fa fa-2x fa-plus-circle")
+              br
+              br
+              span Add Product
+      each p, id in products
+        div(class="col-6 col-sm-4 col-md-3")
+          div(class="card")
+            div(class="card-actions")
+              a(href="/admin/products/edit/#{id}", class="card-action" title="Edit Product")
+                i(class="fa fa-edit")
+            img(class="card-img-top", src= p.image, alt= p.title)
+            div(class="card-body text-center")
+              h5(class="card-title")= p.title
+              p(class="card-text")= p.currency + p.price
+        

@@ -1,193 +1,69 @@
 {
+  "theme": {
+    "dark": false,
+    "colors": {
+      "primary": null,
+      "secondary": null
+    }
+  },
   "meta": {
     "title": "Site Builder",
     "description": "Ultra-fast company websites for whoever needs 'em",
-    "company": "Sitebuilder Inc.",
+    "image": null
+  },
+  "company": {
+    "logo": null,
+    "name": "Sitebuilder, Inc.",
+    "brand": "Sitebuilder",
     "established": "2018",
-    "founders": [
-      "Mason Stedman",
-      "Rob Watt"
-    ]
+    "description": "Ultra-fast company websites for whoever needs 'em",
+    "address": {
+      "street1": "3135 Johnson St. NE",
+      "street2": null,
+      "city": "Minneapolis",
+      "state": "MN",
+      "zip": "55418"
+    },
+    "phone": {
+      "country": "+1",
+      "number": "(507) 213-8208"
+    },
+    "email": "support@sitebuilder.com"
   },
-  "header": {
-    "brand": "My Site",
-    "title": "Welcome To The Website!",
-    "style": {
-      "color": "#ffffff",
-      "background": {
-        "color": "#13ff00",
-        "image": "https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+  "content": [
+    "0",
+    "1"
+  ],
+  "products": {
+    "0": {
+      "title": "My First Product",
+      "currency": "$",
+      "price": "25.99",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "image": "/images/blender.jpg"
+    },
+    "1": {
+      "title": "Apple Watch Band",
+      "currency": "$",
+      "price": "15.00",
+      "description": "This is my first try at adding a product via the api",
+      "image": "/images/watch.png"
+    }
+  },
+  "sections": {
+    "0": {
+      "type": "jumbotron",
+      "title": "Welcome!",
+      "text": "Ultra-fast company websites for whoever needs 'em",
+      "align": "center"
+    },
+    "1": {
+      "type": "product",
+      "productid": "0",
+      "button": {
+        "text": "Buy Now",
+        "link": "https://www.google.com"
       }
-    },
-    "text": "Ultra-fast company websites for whoever needs 'em"
-  },
-  "product": {
-    "title": "My First Product",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "price": "25.99",
-    "currency": "$",
-    "image": "https://express-site-builder.herokuapp.com/images/dummy_product.jpg",
-    "button": {
-      "text": "Buy Now",
-      "link": "https://www.google.com"
     }
-  },
-  "sections": [
-    {
-      "type": "reviews",
-      "id": "reviews",
-      "name": "Testimonials",
-      "title": "Hear it from the source",
-      "text": "Read real testimonials from real customers all over the world!",
-      "items": [
-        {
-          "source": "Amazon",
-          "text": "Amazing! I don't think I'll ever use anything else!",
-          "rating": 5
-        },
-        {
-          "source": "Apple Store",
-          "text": "The user interface goes toe to toe with design giants like Apple",
-          "rating": 4.5
-        }
-      ]
-    },
-    {
-      "type": "pricing",
-      "id": "pricing",
-      "name": "Pricing",
-      "title": "Flexible Pricing",
-      "text": "Choose a tier that's right for your company",
-      "offers": [
-        {
-          "price": 25,
-          "duration": "month",
-          "features": [
-            {
-              "name": "API Access",
-              "active": true
-            },
-            {
-              "name": "Unlimited users",
-              "active": false
-            },
-            {
-              "name": "Unlimited data",
-              "active": false
-            },
-            {
-              "name": "Premium Support",
-              "active": false
-            },
-            {
-              "name": "Development Resources",
-              "active": false
-            }
-          ]
-        },
-        {
-          "price": 50,
-          "duration": "month",
-          "features": [
-            {
-              "name": "API Access",
-              "active": true
-            },
-            {
-              "name": "Unlimited users",
-              "active": true
-            },
-            {
-              "name": "Unlimited data",
-              "active": true
-            },
-            {
-              "name": "Premium Support",
-              "active": false
-            },
-            {
-              "name": "Development Resources",
-              "active": false
-            }
-          ]
-        },
-        {
-          "price": 75,
-          "duration": "month",
-          "features": [
-            {
-              "name": "API Access",
-              "active": true
-            },
-            {
-              "name": "Unlimited users",
-              "active": true
-            },
-            {
-              "name": "Unlimited data",
-              "active": true
-            },
-            {
-              "name": "Premium Support",
-              "active": true
-            },
-            {
-              "name": "Development Resources",
-              "active": false
-            }
-          ]
-        },
-        {
-          "title": "Enterprise",
-          "features": [
-            {
-              "name": "API Access",
-              "active": true
-            },
-            {
-              "name": "Unlimited users",
-              "active": true
-            },
-            {
-              "name": "Unlimited data",
-              "active": true
-            },
-            {
-              "name": "Premium Support",
-              "active": true
-            },
-            {
-              "name": "Development Resources",
-              "active": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "contact",
-      "id": "contact-us",
-      "name": "Contact",
-      "title": "Contact our team",
-      "items": [
-        {
-          "type": "email",
-          "value": "support@sitebuilder.com"
-        },
-        {
-          "type": "tel",
-          "country": "+1",
-          "value": "(507) 213-8208"
-        },
-        {
-          "type": "address",
-          "street1": "3135 Johnson St. NE",
-          "street2": null,
-          "city": "Minneapolis",
-          "state": "MN",
-          "zip": "55418"
-        }
-      ]
-    }
-  ]
+  }
 }

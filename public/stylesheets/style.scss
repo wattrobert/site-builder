@@ -2,11 +2,12 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 body {
-    margin-top: 3.5em;
+    main {
+        margin-top: 3.5em;
 
-
-    main section {
-        position: relative;
+        section {
+            position: relative;
+        }
     }
 }
 
@@ -32,4 +33,10 @@ body {
 a.anchor {
     position: absolute;
     top: -5em;
+}
+
+.card-actions {
+    position: absolute;
+    top: $grid-gutter-width/2;
+    right: $grid-gutter-width/2;
 }

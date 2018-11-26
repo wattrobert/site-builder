@@ -1,0 +1,26 @@
+div(class="row")
+  div(class="col-md-8")
+    div(class="row")
+      div(class="form-group col")
+        label(for="title") Name
+        input(id="title", name="title", type="text", value= product.title, placeholder="Enter a name for your product", class="form-control", required)
+      div(class="form-group col-sm-2")
+        label(for="currency") Currency
+        input(id="currency", name="currency", type="text", value= product.currency, placeholder="Enter a currency symbol", class="form-control", required)
+      div(class="form-group col-sm-3")
+        label(for="price") Price
+        input(id="price", name="price", type="number", step="0.01" value= product.price, placeholder="0.00", class="form-control", required)
+    div(class="form-group")
+      label(for="description") Description
+      textarea(id="description", rows="7", name="description", placeholder="Describe your product", class="form-control", required)= product.description
+    div(class="row")
+      div(class="col-sm-7 col-md-8")
+        div(class="form-group")
+          label(for="image") Image
+          div(class="input-group")
+            div(class="input-group-prepend")
+              i(class="input-group-text fas fa-link")
+            input(id="image", name="image", type="text", value= product.image, class="form-control")
+      div(class="col-sm-5 col-md-4")
+        figure
+          img(src= product.image, class="w-100 img-thumbnail")

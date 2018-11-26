@@ -1,0 +1,17 @@
+extends ./../document
+
+block layout
+  body
+    nav(class="navbar navbar-dark bg-dark fixed-top")
+      div(class="navbar-expand container")
+        a(class="navbar-brand", href="/")= company.brand
+        ul(class="navbar-nav mr-auto")
+          li(class="nav-item")
+            a(class="nav-link" href="/admin") Page
+          li(class="nav-item")
+            a(class="nav-link" href="/admin/sections") Sections
+          li(class="nav-item")
+            a(class="nav-link" href="/admin/products") Products
+
+    main
+      block content
