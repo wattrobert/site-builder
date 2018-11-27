@@ -36,17 +36,17 @@
   ],
   "products": {
     "0": {
-      "title": "My First Product",
+      "title": "Calphalon Blender",
       "currency": "$",
-      "price": "25.99",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "price": "159.99",
+      "description": "The Calphalon Auto-Speed Blender senses the mixture in the jar and automatically adjusts power to maintain blade speed for perfectly blended results. Dual-direction blades and a 1,100-watt motor easily pulverize the contents. The 2-liter Tritan jar is dishwasher. An All-Metal Drive delivers reliable durability and a digital interface provides intuitive control. The included Blend-N-Go smoothie cup lets you add ingredients and blend inside the 25-oz. cup, then take it with you.",
       "image": "/images/blender.jpg"
     },
     "1": {
       "title": "Apple Watch Band",
       "currency": "$",
-      "price": "15.00",
-      "description": "This is my first try at adding a product via the api",
+      "price": "11.99",
+      "description": "For Apple Watch Band 42mm/38mm/44mm/40mm: Top stainless steel mesh loop apple watch strap for iWatch Sports Edition series 3 2 1. One Year Warranty for apple watch milanese loop. Feel free to contact for any quality issues.",
       "image": "/images/watch.png"
     }
   },

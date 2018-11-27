@@ -34,4 +34,9 @@ router.get('/sections', function (req, res, next) {
   res.render('admin/sections', data);
 });
 
+router.get('/company', function (req, res, next) {
+  var data = JSON.parse(fs.readFileSync(dbpath, 'utf8'));
+  res.render('admin/company', data);
+});
+
 module.exports = router;
