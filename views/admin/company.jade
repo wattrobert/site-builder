@@ -1,6 +1,92 @@
 extends layout
 
 block content
-  div(class="container")
-    h1 Company Admin
-    p Change company settings that are used throughout the site
+  div(class="container py-4")
+    form(method="POST", action="/api/company", enctype="application/x-www-form-urlencoded")
+      div(class="d-flex justify-content-between align-items-end")
+        h1(class="h4 mb-0") Company Settings
+        div
+          button(type="reset", class="btn btn-outline-dark") Discard Changes
+          button(type="submit", class="btn btn-success ml-2") Save Changes
+      hr
+      div(class="row")
+        div(class="col-md-8")
+          fieldset(id="basic")
+            legend(class="h5", for="basic") Basic Information
+            div(class="form-row")
+              div(class="col-sm-8")
+                div(class="form-group")
+                  label(for="name") Business Name
+                  input(id="name", name="name" type="text", value= company.name, aria-describedby="nameDescription" class="form-control", required)
+                  small(id="nameDescription" class="form-text text-muted") The company name to be presented within a legal context.
+              div(class="col-sm-4")
+                div(class="form-group")
+                  label(for="established") Established Year
+                  div(class="input-group")
+                    div(class="input-group-prepend")
+                      i(class="input-group-text fa fa-calendar-alt")
+                    input(id="established", name="established", type="number", min="1800", max="2018" value= company.established, aria-describedby="establishedDescription" class="form-control", required)
+                  small(id="establishedDescription" class="form-text text-muted") Used for copyright presentation.
+            div(class="form-row")
+              div(class="col-sm-7")
+                div(class="form-group")
+                  label(for="brand") Brand Name
+                  input(id="brand", name="brand", type="text", value= company.brand, aria-describedby="brandDescription" class="form-control", required)
+                  small(id="brandDescription" class="form-text text-muted") The company name to be presented outside of a legal context.
+            div(class="form-row")  
+              div(class="col-sm-5")
+                div(class="form-group")
+                  label(for="logo") Logo
+                  div(class="input-group")
+                    div(class="input-group-prepend")
+                      i(class="input-group-text fa fa-link")
+                    input(id="logo", name="logo", type="url", value= company.logo, placeholder="(optional)" aria-describedby="logoDescription" class="form-control")
+                  small(id="logoDescription" class="form-text text-muted") Shown in place of or next to the brand name.
+            div(class="form-group")
+              label(for="description") Company Description
+              textarea(id="description", rows="5", name="description", placeholder="Describe your company (optional)", aria-describedby="descriptionDescription" class="form-control")= company.description
+              small(id="descriptionDescription" class="form-text text-muted") Presented in about us sections and the global footer on certain themes.
+          hr
+          fieldset(id="contact")
+            legend(class="h5" for="address") Contact Information
+            div(class="row")
+              div(class="col-md-6")
+                div(class="form-group")
+                  label(for="phone") Phone Number
+                  div(class="input-group")
+                    div(class="input-group-prepend")
+                      span(class="input-group-text") +
+                    input(id="phone", name="phone", type="number", value= company.phone, aria-describedby="phoneDescription" class="form-control")
+                  small(id="phoneDescription" class="form-text text-muted") 
+                    span Please enter the country code
+                    em  and 
+                    span the full 10 digit phone number.
+              div(class="col-md-6")
+                div(class="form-group")
+                  label(for="email") Email Address
+                  input(id="email", name="email", type="email", value= company.email, aria-describedby="emailDescription" class="form-control")
+                  small(id="emailDescription" class="form-text text-muted") Presented in the contact us section and generated legal copy.
+            label(for="address_street1") Mailing Address
+            div(class="form-row")
+              div(class="col-md-5")
+                div(class="form-group")
+                  label(for="address_street1", class="sr-only") Street Address
+                  input(id="address_street1", name="address.street1", type="text", value= company.address.street1, placeholder="Street Address" class="form-control", required)
+              div(class="col-md-5")
+                div(class="form-group")
+                  label(for="address_street2", class="sr-only") Apt, Suite, or Floor #
+                  input(id="address_street2", name="address.street2", type="text" value= company.address.street2, placeholder="Apt, Suite, or Floor # (optional)", class="form-control")
+            div(class="form-row")
+              div(class="col-sm-6 col-md-4")
+                div(class="form-group")
+                  label(for="address_city", class="sr-only") City
+                  input(id="address_city", name="address.city", type="text", value= company.address.city, placeholder="City", class="form-control", required)
+              div(class="col-sm-3 col-md-2")
+                div(class="form-group")
+                  label(for="address_state", class="sr-only") State
+                  input(id="address_state", name="address.state", type="text", minlength="2", maxlength="2" value= company.address.state, placeholder="State", class="form-control", required)
+              div(class="col-sm-3")
+                div(class="form-group")
+                  label(for="address_zip", class="sr-only") Zip
+                  input(id="address_zip", name="address.zip", type="text", minlength="5", maxlength="5" value= company.address.zip, placeholder="Zip", class="form-control", required)
+              

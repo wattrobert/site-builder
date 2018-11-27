@@ -9,7 +9,7 @@ block content
           span(class="font-weight-light") Editing:
           span  #{product.title}
         div
-          a(class="btn btn-outline-dark", href="/admin/products") Cancel
+          button(type="reset", class="btn btn-outline-dark") Discard Changes
           button(type="submit", class="btn btn-success ml-2") Save Changes
       hr
       include ./includes/product-form.jade

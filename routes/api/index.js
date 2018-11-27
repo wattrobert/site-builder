@@ -4,6 +4,23 @@ var _ = require('lodash');
 var router = express.Router();
 var dbpath = __dirname + '/../../private/db.json';
 
+router.post('/company', (req, res, next) => {
+  fs.readFile(dbpath, 'utf8', (err, data) => {
+    if (err) {
+      res.status(500).send(JSON.parse(err));
+    } else {
+      var newData = JSON.stringify(updateCompany(req.body, JSON.parse(data)), null, 2);
+      fs.writeFile(dbpath, newData, (err) => {
+        if (err) {
+          res.redirect(500, '/admin/company');
+        } else {
+          res.redirect('/admin/company');
+        }
+      })
+    }
+  })
+})
+
 router.post('/product', (req, res, next) => {
   fs.readFile(dbpath, 'utf8', (err, data) => {
     if (err) {
@@ -69,6 +86,11 @@ function updateProduct(id, productData, allData) {
 
 function deleteProduct(id, allData) {
   allData.products = _.omit(allData.products, id);
+  return allData;
+}
+
+function updateCompany(companyData, allData) {
+  allData.company = parseRequest(companyData, allData.company);
   return allData;
 }
 
