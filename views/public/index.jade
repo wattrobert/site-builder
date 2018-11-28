@@ -1,14 +1,10 @@
 extends layout
 
 block content
-  each s in content
+  each s in sections
     a(name= s.id)
     case s.type
       when "jumbotron"
         include ./includes/jumbotron
       when "product"
         include ./includes/product
-      when "contact"
-        include ./includes/contact
-      when "reviews"
-        include ./includes/reviews

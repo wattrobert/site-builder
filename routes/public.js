@@ -1,35 +1,37 @@
-var express = require('express');
-var router = express.Router();
-var _ = require('lodash');
-var fs = require('fs');
-var dbpath = __dirname + '/../private/db.json';
+function generateRoutes(pages) {
+  let express = require('express');
+  let router = express.Router();
+  let companyJson = __dirname + '/../private/company.json';
+  let sectionsJson = __dirname + '/../private/sections.json';
+  let productsJson = __dirname + '/../private/products.json';
+  let _ = require('lodash');
+  let fs = require('fs');
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  var data = JSON.parse(fs.readFileSync(dbpath, 'utf8'));
-  res.render('public/index', resolveReferences(data));
-});
+  _.forEach(pages, (page, path) => {
+    router.get(path, (req, res, next) => {
+      res.render('public/index', (function () {
+        let result = Object.assign({}, page);
+        result.company = JSON.parse(fs.readFileSync(companyJson, 'utf8'));
+        var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
+        var products = JSON.parse(fs.readFileSync(productsJson, 'utf8'));
+        if (result.sections && result.sections.length) {
+          result.sections = _.map(_.map(result.sections, (sectionid) => {
+            var s = sections[sectionid];
+            s.id = sectionid;
+            return s;
+          }), (section) => {
+            section.product = section.type === 'product' ? products[section.productid] : null;
+            return section;
+          })
+        } else {
+          result.sections = [];
+        }
+        return result;
+      })())
+    })
+  })
 
-router.get('/cart', function (req, res, next) {
-  var data = JSON.parse(fs.readFileSync(dbpath, 'utf8'));
-  res.render('public/cart', data);
-});
-
-router.get('/checkout', function (req, res, next) {
-  var data = JSON.parse(fs.readFileSync(dbpath, 'utf8'));
-  res.render('public/checkout', data);
-});
-
-function resolveReferences(data) {
-  data.content = _.map(_.map(data.content, sectionId => {
-    return data.sections[sectionId];
-  }), section => {
-    if (section.type === 'product') {
-      section.product = data.products[section.productid];
-    }
-    return section;
-  });
-  return data;
+  return router;
 }
 
-module.exports = router;
+module.exports = generateRoutes;

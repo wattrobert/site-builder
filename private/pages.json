@@ -1,0 +1,29 @@
+{
+  "/": {
+    "name": "home",
+    "meta": {
+      "title": "Site Builder",
+      "description": "Ultra-fast company websites for whoever needs 'em",
+      "image": null
+    },
+    "sections": ["0", "1"]
+  },
+  "/cart": {
+    "name": "cart",
+    "meta": {
+      "title": "Site Builder | Shopping Cart",
+      "description": "Ultra-fast company websites for whoever needs 'em",
+      "image": null
+    },
+    "sections": ["CART"]
+  },
+  "/checkout": {
+    "name": "checkout",
+    "meta": {
+      "title": "Site Builder | Checkout",
+      "description": "Ultra-fast company websites for whoever needs 'em",
+      "image": null
+    },
+    "sections": ["CHECKOUT"]
+  }
+}
