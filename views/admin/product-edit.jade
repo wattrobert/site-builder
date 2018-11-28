@@ -2,7 +2,7 @@ extends layout
 
 block content
   div(class="container py-4")
-    form(method="POST", action="/api/product/#{productid}", enctype="application/x-www-form-urlencoded")
+    form(method="POST", action="/api/products/#{productid}", enctype="application/x-www-form-urlencoded")
       div(class="d-flex justify-content-between align-items-end")
 
         h1(class="h4 mb-0")
@@ -26,7 +26,7 @@ block content
                   br
                   small This action cannot be undone
               div(class="col-auto")
-                form(method="POST", action="/api/product/#{productid}/delete")
+                form(method="POST", action="/api/products/#{productid}/delete")
                   button(type="submit", class="btn btn-outline-danger")
                     i(class="fa fa-trash-alt")
                     span  Delete

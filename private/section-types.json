@@ -1,0 +1,14 @@
+{
+  "jumbotron": {
+    "title": "string",
+    "text": "string",
+    "align": ["left", "right", "center"]
+  },
+  "product": {
+    "productid": "string",
+    "button": {
+      "text": "string",
+      "link": "url"
+    }
+  }
+}

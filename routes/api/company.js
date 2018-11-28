@@ -4,13 +4,13 @@ var _ = require('lodash');
 var router = express.Router();
 var companyJson = __dirname + '/../../private/company.json';
 
-router.post('/company', (req, res, next) => {
+router.post('/', (req, res, next) => {
   fs.readFile(companyJson, 'utf8', (err, data) => {
     if (err) {
       res.status(500).send(JSON.parse(err));
     } else {
-      var newData = JSON.stringify(parseRequest(data, company), null, 2);
-      fs.writeFile(dbpath, newData, (err) => {
+      var newData = JSON.stringify(parseRequest(req.body, JSON.parse(data)), null, 2);
+      fs.writeFile(companyJson, newData, (err) => {
         if (err) {
           res.redirect(500, '/admin/company');
         } else {

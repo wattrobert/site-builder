@@ -27,7 +27,7 @@ router.post('/:id', (req, res) => {
       res.status(500).send(JSON.parse(err));
     } else {
       var newData = JSON.stringify(updateProduct(req.params.id, req.body, JSON.parse(data)), null, 2);
-      fs.writeFile(dbpath, newData, (err) => {
+      fs.writeFile(productsJson, newData, (err) => {
         if (err) {
           res.redirect(500, '/admin/products/edit/' + req.params.id);
         } else {
@@ -44,7 +44,7 @@ router.post('/:id/delete', (req, res) => {
       res.status(500).send(JSON.parse(err));
     } else {
       var newData = JSON.stringify(deleteProduct(req.params.id, JSON.parse(data)), null, 2);
-      fs.writeFile(dbpath, newData, (err) => {
+      fs.writeFile(productsJson, newData, (err) => {
         if (err) {
           res.redirect(500, '/admin/products/edit/' + req.params.id);
         } else {
