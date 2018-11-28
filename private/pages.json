@@ -1,5 +1,6 @@
 {
-  "/": {
+  "0": {
+    "path": "/",
     "name": "home",
     "meta": {
       "title": "Site Builder",
@@ -8,7 +9,8 @@
     },
     "sections": ["0", "1"]
   },
-  "/cart": {
+  "1": {
+    "path": "/cart",
     "name": "cart",
     "meta": {
       "title": "Site Builder | Shopping Cart",
@@ -17,7 +19,8 @@
     },
     "sections": ["CART"]
   },
-  "/checkout": {
+  "2": {
+    "path": "/checkout",
     "name": "checkout",
     "meta": {
       "title": "Site Builder | Checkout",

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
+var _ = require('lodash');
 var companyJson = __dirname + '/../private/company.json';
 var sectionsJson = __dirname + '/../private/sections.json';
 var productsJson = __dirname + '/../private/products.json';
@@ -48,6 +49,11 @@ router.get('/pages', function (req, res, next) {
   }, adminData));
 });
 
+router.get('/pages/edit/:id', function (req, res, next) {
+  var pages = JSON.parse(fs.readFileSync(pagesJson, 'utf8'));
+  res.render('admin/page-edit', Object.assign(resolveReferences(pages[req.params.id], req.params.id), adminData));
+})
+
 router.get('/sections', function (req, res, next) {
   var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
   res.render('admin/sections', Object.assign({
@@ -61,5 +67,28 @@ router.get('/company', function (req, res, next) {
     company: company
   }, adminData));
 });
+
+function resolveReferences(page, id) {
+  let result = {
+    pageid: id,
+    page: page
+  };
+  result.company = JSON.parse(fs.readFileSync(companyJson, 'utf8'));
+  var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
+  var products = JSON.parse(fs.readFileSync(productsJson, 'utf8'));
+  if (result.page.sections && result.page.sections.length) {
+    result.page.sections = _.map(_.map(result.page.sections, (sectionid) => {
+      var s = sections[sectionid];
+      s.id = sectionid;
+      return s;
+    }), (section) => {
+      section.product = section.type === 'product' ? products[section.productid] : null;
+      return section;
+    })
+  } else {
+    result.page.sections = [];
+  }
+  return result;
+}
 
 module.exports = router;

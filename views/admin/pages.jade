@@ -1,6 +1,25 @@
 extends layout
 
 block content
-  div(class="container")
-    h1 Page Admin
-    p Create and edit pages for your site
+  div(class="container py-4")
+    div(class="d-flex justify-content-between align-items-end")
+      h1(class="h4 mb-0") Page Manager
+      div
+        a(href="/admin/pages/create", class="btn btn-success") 
+          i(class="fa fa-plus")
+          span  Add Page
+    hr
+    div(class="list-group")
+      each page, id in pages
+        div(class="list-group-item")
+          div(class="row align-items-center")
+            div(class="col")
+              h5(class="mb-0")= page.name
+              a(href="#")
+                code https://www.sitebuilder.com#{page.path}
+            div(class="col-auto text-right")
+              a(class="ml-2", href="/admin/pages/edit/#{id}")
+                i(class="fa fa-edit")
+              br
+              small(class="text-muted") #{page.sections.length} section(s)
+        

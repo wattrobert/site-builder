@@ -19,7 +19,7 @@ block content
             div(class="card-actions")
               a(href="/admin/products/edit/#{id}", class="card-action" title="Edit Product")
                 i(class="fa fa-edit")
-            img(class="card-img-top", src= p.image, alt= p.title)
+            img(class="card-img-top", style="max-height:200px; width:auto; max-width:100%; margin:0 auto;", src= p.image, alt= p.title)
             div(class="card-body text-center")
               h5(class="card-title")= p.title
               p(class="card-text")= p.currency + p.price

@@ -7,10 +7,12 @@ function generateRoutes(pages) {
   let _ = require('lodash');
   let fs = require('fs');
 
-  _.forEach(pages, (page, path) => {
-    router.get(path, (req, res, next) => {
+  _.forEach(pages, (page, id) => {
+    router.get(page.path, (req, res, next) => {
       res.render('public/index', (function () {
-        let result = Object.assign({}, page);
+        let result = Object.assign({
+          id: id
+        }, page);
         result.company = JSON.parse(fs.readFileSync(companyJson, 'utf8'));
         var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
         var products = JSON.parse(fs.readFileSync(productsJson, 'utf8'));
