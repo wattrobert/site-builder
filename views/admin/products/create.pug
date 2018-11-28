@@ -1,4 +1,4 @@
-extends layout
+extends ./../layout
 
 block content
   form(class="container pt-4", method="POST", action="/api/products", enctype="application/x-www-form-urlencoded")
@@ -10,4 +10,4 @@ block content
         a(class="btn btn-outline-dark", href="/admin/products") Cancel
         button(type="submit", class="btn btn-success ml-2") Finish
     hr
-    include ./includes/product-form.jade
+    include ./../includes/product-form

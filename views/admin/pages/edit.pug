@@ -1,18 +1,18 @@
-extends layout
+extends ./../layout
 
 block content
   div(class="container py-4")
-    form(method="POST", action="/api/products/#{productid}", enctype="application/x-www-form-urlencoded")
+    form(method="POST", action="/api/pages/" + page.id, enctype="application/x-www-form-urlencoded")
       div(class="d-flex justify-content-between align-items-end")
 
         h1(class="h4 mb-0")
           span(class="font-weight-light") Editing:
-          span  #{product.title}
+          span  #{page.name}
         div
           button(type="reset", class="btn btn-outline-dark") Discard Changes
           button(type="submit", class="btn btn-success ml-2") Save Changes
       hr
-      include ./includes/product-form.jade
+      include ./../includes/page-form
     div(class="row")
       div(class="col-md-8")
         hr
@@ -22,11 +22,11 @@ block content
             div(class="row")
               div(class="col")
                 h6(class="card-title mb-0") 
-                  span Delete this product
+                  span Delete this page
                   br
                   small This action cannot be undone
               div(class="col-auto")
-                form(method="POST", action="/api/products/#{productid}/delete")
+                form(method="POST", action="/api/pages/" + page.id + "/delete")
                   button(type="submit", class="btn btn-outline-danger")
                     i(class="fa fa-trash-alt")
                     span  Delete

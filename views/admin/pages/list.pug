@@ -1,4 +1,4 @@
-extends layout
+extends ./../layout
 
 block content
   div(class="container py-4")
@@ -16,10 +16,9 @@ block content
             div(class="col")
               h5(class="mb-0")= page.name
               a(href="#")
-                code https://www.sitebuilder.com#{page.path}
+                code= url + page.path
             div(class="col-auto text-right")
-              a(class="ml-2", href="/admin/pages/edit/#{id}")
+              a(class="ml-2", href="/admin/pages/edit/" + id)
                 i(class="fa fa-edit")
               br
               small(class="text-muted") #{page.sections.length} section(s)
-        

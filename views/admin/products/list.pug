@@ -1,4 +1,4 @@
-extends layout
+extends ./../layout
 
 block content
   div(class="container py-4")
@@ -14,7 +14,7 @@ block content
         div(class="col-6 col-sm-4 col-md-3")
           div(class="card h-100")
             div(class="card-actions")
-              a(href="/admin/products/edit/#{id}", class="card-action" title="Edit Product")
+              a(href="/admin/products/edit/" + id, class="card-action" title="Edit Product")
                 i(class="fa fa-edit")
             img(class="card-img-top", style="max-height:200px; width:auto; max-width:100%; margin:0 auto;", src= p.image, alt= p.title)
             div(class="card-body text-center")
