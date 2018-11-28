@@ -40,3 +40,16 @@ a.anchor {
     top: $grid-gutter-width/2;
     right: $grid-gutter-width/2;
 }
+
+.section-snapshot-container {
+    // position: absolute;
+    // right: 0;
+    // top: 0;
+    // bottom: 0;
+    // overflow: hidden;
+}
+
+.section-snapshot {
+    pointer-events: none;
+    transform: scale(0.5, 0.5);
+}

@@ -6341,4 +6341,8 @@ a.anchor {
   top: 15px;
   right: 15px; }
 
+.section-snapshot {
+  pointer-events: none;
+  transform: scale(0.5, 0.5); }
+
 /*# sourceMappingURL=style.css.map */

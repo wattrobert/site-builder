@@ -15,6 +15,8 @@ var adminData = {
   }
 }
 
+var hiddenSections = ['CART', 'CHECKOUT']
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.redirect('/admin/pages');
@@ -67,7 +69,7 @@ router.get('/pages/edit/:id', function (req, res, next) {
 router.get('/sections', function (req, res, next) {
   var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
   res.render('admin/sections/list', Object.assign({
-    sections: sections
+    sections: _.map(_.omit(sections, hiddenSections), resolveSectionReferences)
   }, adminData));
 });
 
@@ -92,14 +94,19 @@ function resolveReferences(page, id) {
       var s = sections[sectionid];
       s.id = sectionid;
       return s;
-    }), (section) => {
-      section.product = section.type === 'product' ? products[section.productid] : null;
-      return section;
-    })
+    }), resolveSectionReferences)
   } else {
     result.page.sections = [];
   }
   return result;
+}
+
+function resolveSectionReferences(section) {
+  if (section.type === 'product') {
+    var products = JSON.parse(fs.readFileSync(productsJson, 'utf8'));
+    section.product = products[section.productid];
+  }
+  return section;
 }
 
 module.exports = router;

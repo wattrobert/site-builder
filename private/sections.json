@@ -1,15 +1,9 @@
 {
   "CART": {
-    "type": "jumbotron",
-    "title": "Shopping Cart",
-    "text": "View all the items in your cart.",
-    "align": "center"
+    "type": "cart"
   },
   "CHECKOUT": {
-    "type": "jumbotron",
-    "title": "Checkout",
-    "text": "Fill out your shipping, billing, and payment information.",
-    "align": "center"
+    "type": "checkout"
   },
   "0": {
     "type": "jumbotron",

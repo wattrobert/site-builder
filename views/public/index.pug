@@ -4,6 +4,10 @@ block content
   each s in sections
     a(name= s.id)
     case s.type
+      when "cart"
+        include ./includes/cart
+      when "checkout"
+        include ./includes/checkout
       when "jumbotron"
         include ./includes/jumbotron
       when "product"
