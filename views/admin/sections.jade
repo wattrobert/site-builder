@@ -1,6 +1,14 @@
 extends layout
 
 block content
-  div(class="container")
-    h1 Section Admin
-    p Create and edit sections that can be added to your page
+  div(class="container py-4")
+    div(class="d-flex justify-content-between align-items-end")
+      h1(class="h4 mb-0") Section Manager
+      div
+        a(href="/admin/sections/create", class="btn btn-outline-primary") 
+          i(class="fa fa-plus")
+          span  New Template
+        a(href="/admin/sections/create", class="ml-2 btn btn-success") 
+          i(class="fa fa-plus")
+          span  Add Section
+    hr
