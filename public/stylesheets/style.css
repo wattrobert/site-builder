@@ -6341,8 +6341,20 @@ a.anchor {
   top: 15px;
   right: 15px; }
 
+.section-snapshot-container {
+  padding: 7.5px;
+  position: absolute;
+  right: 7.5px;
+  top: 7.5px;
+  bottom: 7.5px;
+  left: 7.5px;
+  overflow: hidden; }
+
 .section-snapshot {
+  border: 2px solid #ddd;
+  border-radius: 8px;
   pointer-events: none;
-  transform: scale(0.5, 0.5); }
+  transform-origin: 100% 0;
+  transform: scale(0.5); }
 
 /*# sourceMappingURL=style.css.map */

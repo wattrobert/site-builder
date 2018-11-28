@@ -42,14 +42,19 @@ a.anchor {
 }
 
 .section-snapshot-container {
-    // position: absolute;
-    // right: 0;
-    // top: 0;
-    // bottom: 0;
-    // overflow: hidden;
+    padding: $grid-gutter-width/4;
+    position: absolute;
+    right: $grid-gutter-width/4;
+    top: $grid-gutter-width/4;
+    bottom: $grid-gutter-width/4;
+    left: $grid-gutter-width/4;
+    overflow: hidden;
 }
 
 .section-snapshot {
+    border: 2px solid #ddd;
+    border-radius: 8px;
     pointer-events: none;
-    transform: scale(0.5, 0.5);
+    transform-origin: 100% 0;
+    transform: scale(0.5);
 }
