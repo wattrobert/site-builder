@@ -7,7 +7,7 @@
       "description": "Ultra-fast company websites for whoever needs 'em",
       "image": null
     },
-    "sections": ["0", "1", "CART"]
+    "sections": ["0", "1", "cart"]
   },
   "1": {
     "path": "/cart",
@@ -17,7 +17,7 @@
       "description": "Ultra-fast company websites for whoever needs 'em",
       "image": null
     },
-    "sections": ["CART"]
+    "sections": ["cart"]
   },
   "2": {
     "path": "/checkout",
@@ -27,6 +27,6 @@
       "description": "Ultra-fast company websites for whoever needs 'em",
       "image": null
     },
-    "sections": ["CHECKOUT"]
+    "sections": ["checkout"]
   }
 }

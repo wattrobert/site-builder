@@ -1,9 +1,9 @@
 {
-  "CART": {
+  "cart": {
     "type": "cart",
     "name": "Cart Module"
   },
-  "CHECKOUT": {
+  "checkout": {
     "type": "checkout",
     "name": "Checkout Module"
   },

@@ -1,8 +1,8 @@
 extends ./../layout
 
 block content
-  div(class="container py-4")
-    div(class="d-flex justify-content-between align-items-end")
+  .container.py-4
+    .d-flex.justify-content-between.align-items-end
       h1(class="h4 mb-0") Section Manager
       div
         //- a(href="/admin/sections/create", class="btn btn-outline-primary") 
@@ -12,20 +12,26 @@ block content
           i(class="fa fa-plus")
           span  Add Section
     hr
-    each s, id in sections
-      .card.position-relative.mb-3
-        .card-body
-          a(class="float-right" title="Edit Section", href="/admin/sections/edit/" + id)
-            i(class="fa fa-edit")
-          h5= s.name
-          .section-snapshot-container
-            .section-snapshot
-              case s.type
-                when "jumbotron"
-                  include ./../../public/includes/jumbotron
-                when "product"
-                  include ./../../public/includes/product
-          span(class="badge badge-secondary") #{s.type.replace(/^\w/, c => c.toUpperCase())}
+    .row
+      .col-md-8
+        each s, id in sections
+          .card.position-relative.mb-3
+            .card-body
+              a(class="float-right" title="Edit Section", href="/admin/sections/edit/" + id)
+                i(class="fa fa-edit")
+              h5= s.name
+              .section-snapshot-container
+                .section-snapshot
+                  case s.type
+                    when "cart"
+                      include ./../../public/includes/cart
+                    when "checkout"
+                      include ./../../public/includes/checkout
+                    when "jumbotron"
+                      include ./../../public/includes/jumbotron
+                    when "product"
+                      include ./../../public/includes/product
+              span(class="badge badge-secondary") #{s.type.replace(/^\w/, c => c.toUpperCase())}
 
 
     script

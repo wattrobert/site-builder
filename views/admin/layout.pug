@@ -8,12 +8,12 @@ block layout
     script
       include ./../../node_modules/selectize/dist/js/standalone/selectize.js
     nav(class="navbar navbar-expand-md navbar-dark bg-dark fixed-top")
-      div(class="container")
+      .container
         a(class="navbar-brand", href="/") Site Builder
         button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation")
           i(class="fa fa-bars")
 
-        div(class="collapse navbar-collapse", id="navbarCollapse")
+        #navbarCollapse.collapse.navbar-collapse
           ul(class="navbar-nav mr-auto")
             li(class="nav-item")
               a(class="nav-link" href="/admin/pages") Pages
