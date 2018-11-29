@@ -2,18 +2,22 @@ extends ./../document
 
 block layout
   body
-    nav(class="navbar navbar-dark bg-dark fixed-top")
-      div(class="navbar-expand container")
+    nav(class="navbar navbar-expand-md navbar-dark bg-dark fixed-top")
+      div(class="container")
         a(class="navbar-brand", href="/") Site Builder
-        ul(class="navbar-nav mr-auto")
-          li(class="nav-item")
-            a(class="nav-link" href="/admin/pages") Pages
-          li(class="nav-item")
-            a(class="nav-link" href="/admin/sections") Sections
-          li(class="nav-item")
-            a(class="nav-link" href="/admin/products") Products
-          li(class="nav-item")
-            a(class="nav-link" href="/admin/company") Company
+        button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation")
+          i(class="fa fa-bars")
+
+        div(class="collapse navbar-collapse", id="navbarCollapse")
+          ul(class="navbar-nav mr-auto")
+            li(class="nav-item")
+              a(class="nav-link" href="/admin/pages") Pages
+            li(class="nav-item")
+              a(class="nav-link" href="/admin/sections") Sections
+            li(class="nav-item")
+              a(class="nav-link" href="/admin/products") Products
+            li(class="nav-item")
+              a(class="nav-link" href="/admin/company") Company
 
     main
       block content
