@@ -6342,19 +6342,32 @@ a.anchor {
   right: 15px; }
 
 .section-snapshot-container {
-  padding: 7.5px;
-  position: absolute;
-  right: 7.5px;
-  top: 7.5px;
-  bottom: 7.5px;
-  left: 7.5px;
+  position: relative;
+  transform-origin: 0 0;
+  transform: scale(2, 1);
+  min-height: 50px;
+  max-height: 150px;
   overflow: hidden; }
+  .section-snapshot-container:after {
+    content: '';
+    border: 1px solid #ddd;
+    z-index: 3;
+    background: transparent;
+    position: absolute;
+    left: 0;
+    right: 50%;
+    top: 0;
+    bottom: 0;
+    border-radius: 4px; }
 
 .section-snapshot {
-  border: 2px solid #ddd;
-  border-radius: 8px;
+  max-height: 300px;
+  width: 200%;
+  border-radius: 16px;
   pointer-events: none;
-  transform-origin: 100% 0;
-  transform: scale(0.5); }
+  transform-origin: 0 0;
+  transform: scale(0.25, 0.5); }
+  .section-snapshot .jumbotron {
+    margin-bottom: 0; }
 
 /*# sourceMappingURL=style.css.map */

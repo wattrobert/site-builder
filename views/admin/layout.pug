@@ -2,6 +2,11 @@ extends ./../document
 
 block layout
   body
+    //- script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sortable/0.9.13/jquery-sortable-min.js")
+    style
+      include ./../../node_modules/selectize/dist/css/selectize.css
+    script
+      include ./../../node_modules/selectize/dist/js/standalone/selectize.js
     nav(class="navbar navbar-expand-md navbar-dark bg-dark fixed-top")
       div(class="container")
         a(class="navbar-brand", href="/") Site Builder

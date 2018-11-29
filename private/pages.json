@@ -7,7 +7,7 @@
       "description": "Ultra-fast company websites for whoever needs 'em",
       "image": null
     },
-    "sections": ["0", "1"]
+    "sections": ["0", "1", "CART"]
   },
   "1": {
     "path": "/cart",

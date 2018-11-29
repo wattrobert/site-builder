@@ -55,15 +55,22 @@ router.get('/pages', function (req, res, next) {
 
 router.get('/pages/create', function (req, res, next) {
   var pages = JSON.parse(fs.readFileSync(pagesJson, 'utf8'));
+  var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
   res.render('admin/pages/create', Object.assign({
     pages: pages,
-    page: {}
+    sections: _.omit(sections, hiddenSections),
+    page: {
+      sections: []
+    }
   }, adminData));
 })
 
 router.get('/pages/edit/:id', function (req, res, next) {
   var pages = JSON.parse(fs.readFileSync(pagesJson, 'utf8'));
-  res.render('admin/pages/edit', Object.assign(resolveReferences(pages[req.params.id], req.params.id), adminData));
+  var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
+  res.render('admin/pages/edit', Object.assign({
+    sections: sections
+  }, resolveReferences(pages[req.params.id], req.params.id), adminData));
 })
 
 router.get('/sections', function (req, res, next) {
@@ -90,6 +97,7 @@ function resolveReferences(page, id) {
   var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
   var products = JSON.parse(fs.readFileSync(productsJson, 'utf8'));
   if (result.page.sections && result.page.sections.length) {
+    result.page.selectedSections = sections;
     result.page.sections = _.map(_.map(result.page.sections, (sectionid) => {
       var s = sections[sectionid];
       s.id = sectionid;

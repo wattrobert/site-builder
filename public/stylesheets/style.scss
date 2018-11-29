@@ -42,19 +42,37 @@ a.anchor {
 }
 
 .section-snapshot-container {
-    padding: $grid-gutter-width/4;
-    position: absolute;
-    right: $grid-gutter-width/4;
-    top: $grid-gutter-width/4;
-    bottom: $grid-gutter-width/4;
-    left: $grid-gutter-width/4;
+    position: relative;
+    transform-origin: 0 0;
+    transform: scale(2, 1);
+
+    &:after {
+        content: '';
+        border: 1px solid #ddd;
+        z-index: 3;
+        background: transparent;
+        position: absolute;
+        left: 0;
+        right: 50%;
+        top: 0;
+        bottom: 0;
+        border-radius: 4px;
+    }
+
+    min-height: 50px;
+    max-height: 150px;
     overflow: hidden;
 }
 
 .section-snapshot {
-    border: 2px solid #ddd;
-    border-radius: 8px;
+    max-height: 300px;
+    width: 200%;
+    border-radius: 16px;
     pointer-events: none;
-    transform-origin: 100% 0;
-    transform: scale(0.5);
+    transform-origin: 0 0;
+    transform: scale(0.25, 0.5);
+
+    .jumbotron {
+        margin-bottom: 0;
+    }
 }

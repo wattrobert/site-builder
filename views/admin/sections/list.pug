@@ -15,7 +15,8 @@ block content
     .list-group
       each s in sections
         .list-group-item.position-relative
-          span(class="badge badge-secondary") #{s.type.replace(/^\w/, c => c.toUpperCase())}
+          span(class="badge badge-secondary float-right") #{s.type.replace(/^\w/, c => c.toUpperCase())}
+          h5= s.name
           .section-snapshot-container
             .section-snapshot
               case s.type
