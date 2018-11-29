@@ -2,6 +2,8 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 body {
+    overflow-x: hidden;
+
     main {
         margin-top: 3.5em;
 
@@ -42,6 +44,14 @@ a.anchor {
 }
 
 .section-snapshot-container {
+    &+.badge {
+        position: absolute;
+        left: 20px;
+        top: 52px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
     position: relative;
     transform-origin: 0 0;
     transform: scale(2, 1);

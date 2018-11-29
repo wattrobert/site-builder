@@ -12,28 +12,25 @@ div(class="row")
 
     .form-group
       label(for="sections") Sections
-      ul(id="sections", class="list-group")
-        each s, index in page.sections
-          li(class="list-group-item position-relative")
-            h5= s.name
-            //- .float-right
-            //-   if index > 0
-            //-     button(class="d-block btn btn-sm btn-link")
-            //-       i(class="fa fa-angle-up")
-            //-   if index < (page.sections.length - 1)
-            //-     button(class="d-block btn btn-sm btn-link")
-            //-       i(class="fa fa-angle-down")
-            .section-snapshot-container
-              .section-snapshot
-                case s.type
-                  when "cart"
-                    include ./../../public/includes/cart
-                  when "checkout"
-                    include ./../../public/includes/checkout
-                  when "jumbotron"
-                    include ./../../public/includes/jumbotron
-                  when "product"
-                    include ./../../public/includes/product
+      #sections
+        each s, id in page.sections
+          .card.position-relative.mb-3
+            .card-body
+              a(class="float-right" title="Edit Section", href="/sections/edit/" + id)
+                i(class="fa fa-edit")
+              h5= s.name
+              .section-snapshot-container
+                .section-snapshot
+                  case s.type
+                    when "cart"
+                      include ./../../public/includes/cart
+                    when "checkout"
+                      include ./../../public/includes/checkout
+                    when "jumbotron"
+                      include ./../../public/includes/jumbotron
+                    when "product"
+                      include ./../../public/includes/product
+              span(class="badge badge-secondary") #{s.type.replace(/^\w/, c => c.toUpperCase())}
 
 script
   include page.js

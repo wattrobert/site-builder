@@ -80,6 +80,26 @@ router.get('/sections', function (req, res, next) {
   }, adminData));
 });
 
+router.get('/sections/create/:type', function (req, res, next) {
+  var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
+  res.render('admin/sections/create', Object.assign({
+    sections: sections
+  }, {
+    section: {
+      type: req.params.type
+    }
+  }, adminData));
+})
+
+router.get('/sections/edit/:id', function (req, res, next) {
+  var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
+  res.render('admin/sections/edit', Object.assign({
+    sections: sections
+  }, {
+    section: resolveSectionReferences(sections[req.params.id])
+  }, adminData));
+})
+
 router.get('/company', function (req, res, next) {
   var company = JSON.parse(fs.readFileSync(companyJson, 'utf8'));
   res.render('admin/company', Object.assign({

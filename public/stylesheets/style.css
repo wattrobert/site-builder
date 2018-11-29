@@ -6312,10 +6312,12 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-body main {
-  margin-top: 3.5em; }
-  body main section {
-    position: relative; }
+body {
+  overflow-x: hidden; }
+  body main {
+    margin-top: 3.5em; }
+    body main section {
+      position: relative; }
 
 #HEADER {
   position: relative;
@@ -6348,6 +6350,12 @@ a.anchor {
   min-height: 50px;
   max-height: 150px;
   overflow: hidden; }
+  .section-snapshot-container + .badge {
+    position: absolute;
+    left: 20px;
+    top: 52px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0; }
   .section-snapshot-container:after {
     content: '';
     border: 1px solid #ddd;

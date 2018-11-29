@@ -8,14 +8,15 @@ block content
         //- a(href="/admin/sections/create", class="btn btn-outline-primary") 
         //-   i(class="fa fa-plus")
         //-   span  New Template
-        a(href="/admin/sections/create", class="ml-2 btn btn-success") 
+        a(href="/admin/sections/create/jumbotron", class="ml-2 btn btn-success") 
           i(class="fa fa-plus")
           span  Add Section
     hr
-    .list-group
-      each s in sections
-        .list-group-item.position-relative
-          span(class="badge badge-secondary float-right") #{s.type.replace(/^\w/, c => c.toUpperCase())}
+    each s, id in sections
+      .card.position-relative.mb-3
+        .card-body
+          a(class="float-right" title="Edit Section", href="/admin/sections/edit/" + id)
+            i(class="fa fa-edit")
           h5= s.name
           .section-snapshot-container
             .section-snapshot
@@ -24,6 +25,7 @@ block content
                   include ./../../public/includes/jumbotron
                 when "product"
                   include ./../../public/includes/product
+          span(class="badge badge-secondary") #{s.type.replace(/^\w/, c => c.toUpperCase())}
 
 
     script
