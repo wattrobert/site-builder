@@ -17,6 +17,7 @@ var sectionsApi = require('./routes/api/sections');
 var app = express();
 
 // view engine setup
+app.disable('view cache');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -34,7 +35,7 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(publicRouter(JSON.parse(fs.readFileSync(pagesJson, 'utf8'))));
+app.use(publicRouter);
 app.use('/admin', adminRouter);
 app.use('/api/products', productsApi);
 app.use('/api/company', companyApi);
