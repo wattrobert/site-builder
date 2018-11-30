@@ -34,7 +34,7 @@
           span  Add Sections
       input(type="hidden", id="sections", name="sections", value= page.sections.join(','))
       #sortableSections
-        if page.sections
+        if page.sections.length
           include sortable-sections
 
 

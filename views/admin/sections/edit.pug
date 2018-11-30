@@ -6,27 +6,28 @@ block content
       .d-flex.justify-content-between.align-items-end
 
         h1(class="h4 mb-0")
-          span(class="font-weight-light") Editing:
+          span(class="font-weight-light") Editing #{section.type.replace(/^\w/, c => c.toUpperCase())}:
           span  #{section.name}
         div
           button(type="reset", class="btn btn-outline-dark") Discard Changes
           button(type="submit", class="btn btn-success ml-2") Save Changes
       hr
       include ./../includes/section-form
-    .row
-      .col-md-8
-        hr
-        .card.border-danger
-          .card-header.bg-danger.text-light Danger Zone
-          .card-body
-            .row
-              .col
-                h6(class="card-title mb-0") 
-                  span Delete this section
-                  br
-                  small This action cannot be undone
-              .col-auto
-                form(method="POST", action="/api/sections/" + section.id + "/delete")
-                  button(type="submit", class="btn btn-outline-danger")
-                    i(class="fa fa-trash-alt")
-                    span  Delete
+    if section.type !== 'cart' && section.type !== 'checkout'
+      .row
+        .col-md-8
+          hr
+          .card.border-danger
+            .card-header.bg-danger.text-light Danger Zone
+            .card-body
+              .row
+                .col
+                  h6(class="card-title mb-0") 
+                    span Delete this section
+                    br
+                    small This action cannot be undone
+                .col-auto
+                  form(method="POST", action="/api/sections/" + section.id + "/delete")
+                    button(type="submit", class="btn btn-outline-danger")
+                      i(class="fa fa-trash-alt")
+                      span  Delete

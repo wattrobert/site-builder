@@ -41,7 +41,7 @@ function buildSections(page, allSections) {
     s.id = sectionid;
     return s;
   }), (section) => {
-    section.product = (section.type === 'product' ? products[section.productid] : null);
+    section.product = (section.type === 'showcase' ? products[section.productid] : null);
     return section;
   })
 }

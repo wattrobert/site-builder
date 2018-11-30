@@ -1,0 +1,16 @@
+.row
+  .col-md-8
+    input(type="hidden", id="type" name="type",value= section.type)
+    case section.type
+      when "cart"
+        - var cart = section;
+        include ./sections/cart
+      when "checkout"
+        - var checkout = section;
+        include ./sections/checkout
+      when "jumbotron"
+        - var jumbotron = section;
+        include ./sections/jumbotron
+      when "showcase"
+        - var showcase = section;
+        include ./sections/showcase

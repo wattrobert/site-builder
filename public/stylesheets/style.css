@@ -6423,4 +6423,19 @@ a.anchor {
   #sectionSelector .section-option.selected:after {
     opacity: 1; }
 
+.selectize-input, .selectize-input.focus {
+  box-shadow: none; }
+
+.selectize-dropdown {
+  top: calc(2.25rem + 2px) !important; }
+
+.selectize-control.single .selectize-input.input-active {
+  display: block !important; }
+
+.selectize-product-image {
+  width: 100px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center; }
+
 /*# sourceMappingURL=style.css.map */

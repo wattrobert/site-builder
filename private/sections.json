@@ -1,4 +1,19 @@
 {
+  "0": {
+    "type": "jumbotron",
+    "name": "Homepage Header",
+    "title": "Welcome!",
+    "text": "Ultra-fast company websites for whoever needs 'em"
+  },
+  "1": {
+    "name": "Blender Product",
+    "type": "showcase",
+    "productid": "0",
+    "button": {
+      "text": "Buy Now",
+      "link": "https://www.google.com"
+    }
+  },
   "cart": {
     "type": "cart",
     "name": "Cart Module"
@@ -6,21 +21,5 @@
   "checkout": {
     "type": "checkout",
     "name": "Checkout Module"
-  },
-  "0": {
-    "name": "Homepage Header",
-    "type": "jumbotron",
-    "title": "Welcome!",
-    "text": "Ultra-fast company websites for whoever needs 'em",
-    "align": "center"
-  },
-  "1": {
-    "name": "Blender Product Showcase",
-    "type": "product",
-    "productid": "0",
-    "button": {
-      "text": "Buy Now",
-      "link": "https://www.google.com"
-    }
   }
 }

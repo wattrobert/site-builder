@@ -2,13 +2,8 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 var _ = require('lodash');
-var companyJson = __dirname + '/../private/company.json';
-var sectionsJson = __dirname + '/../private/sections.json';
-var productsJson = __dirname + '/../private/products.json';
-var pagesJson = __dirname + '/../private/pages.json';
+var helpers = require('./../helpers');
 var adminData = JSON.parse(fs.readFileSync(__dirname + '/../private/admin.json'));
-
-var hiddenSections = ['CART', 'CHECKOUT']
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -16,119 +11,82 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/products', function (req, res, next) {
-  var products = JSON.parse(fs.readFileSync(productsJson, 'utf8'));
   res.render('admin/products/list', Object.assign({
-    products: products
-  }, adminData));
+    products: helpers.products.get()
+  }, helpers.admin.get()));
 });
 
 router.get('/products/create', function (req, res, next) {
   res.render('admin/products/create', Object.assign({
-    product: {
-      currency: '$'
-    }
-  }, adminData));
+    product: helpers.product.default()
+  }, helpers.admin.get()));
 });
 
 router.get('/products/edit/:id', function (req, res, next) {
-  var products = JSON.parse(fs.readFileSync(productsJson, 'utf8'));
   res.render('admin/products/edit', Object.assign({
-    product: Object.assign({
-      id: req.params.id
-    }, products[req.params.id]),
-  }, adminData));
+    product: helpers.products.get(req.params.id)
+  }, helpers.admin.get()));
 });
 
 router.get('/pages', function (req, res, next) {
-  var pages = JSON.parse(fs.readFileSync(pagesJson, 'utf8'));
-  try {
-    var data = Object.assign({
-      pages: pages
-    }, adminData);
-    res.render('admin/pages/list', data);
-  } catch (ex) {
-    console.log(ex);
-
-  }
+  res.render('admin/pages/list', Object.assign({
+    pages: helpers.pages.get()
+  }, helpers.admin.get()));
 });
 
 router.get('/pages/create', function (req, res, next) {
-  var pages = JSON.parse(fs.readFileSync(pagesJson, 'utf8'));
-  var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
-  res.render('admin/pages/create', Object.assign({
-    pages: pages,
-    sections: _.map(sections, resolveSectionReferences),
+  res.render('admin/pages/create', Object.assign({}, {
+    pages: helpers.pages.get(),
+    sections: helpers.sections.get(null, true),
     page: {
       sections: []
     }
-  }, adminData));
+  }, helpers.admin.get()));
 })
 
 router.get('/pages/edit/:id', function (req, res, next) {
-  var pages = JSON.parse(fs.readFileSync(pagesJson, 'utf8'));
-  var sections = {};
-  _.map(JSON.parse(fs.readFileSync(sectionsJson, 'utf8')), resolveSectionReferences).forEach((s) => {
-    sections[s.id] = s;
-  });
-  console.log(sections);
+  let sections = helpers.sections.get();
+  let products = helpers.products.get();
+
+  _.forEach(sections, (s, id) => {
+    if (s.type === 'showcase') {
+      sections[id].product = products[s.productid];
+    };
+  })
 
   res.render('admin/pages/edit', Object.assign({
     sections: sections,
-  }, resolveReferences(pages[req.params.id], req.params.id), adminData));
+    page: helpers.pages.get(req.params.id)
+  }, helpers.admin.get()));
 })
 
 router.get('/sections', function (req, res, next) {
-  var sections = _.map(JSON.parse(fs.readFileSync(sectionsJson, 'utf8')), resolveSectionReferences);
-  console.log(sections);
   res.render('admin/sections/list', Object.assign({
-    sections: sections
-  }, adminData));
+    sections: helpers.sections.get(null, true)
+  }, helpers.admin.get()));
 });
 
 router.get('/sections/create/:type', function (req, res, next) {
-  var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
   res.render('admin/sections/create', Object.assign({
-    sections: sections
+    section: helpers.sections.default(req.params.type)
   }, {
-    section: {
-      type: req.params.type
-    }
-  }, adminData));
+    sections: helpers.sections.get(),
+    products: helpers.products.get()
+  }, helpers.admin.get()));
 })
 
 router.get('/sections/edit/:id', function (req, res, next) {
-  var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
   res.render('admin/sections/edit', Object.assign({
-    sections: sections
+    section: helpers.sections.get(req.params.id)
   }, {
-    section: resolveSectionReferences(sections[req.params.id])
-  }, adminData));
+    products: helpers.products.get()
+  }, helpers.admin.get()));
 })
 
 router.get('/company', function (req, res, next) {
-  var company = JSON.parse(fs.readFileSync(companyJson, 'utf8'));
   res.render('admin/company', Object.assign({
-    company: company
+    company: helpers.company.get()
   }, adminData));
 });
-
-function resolveReferences(page, id) {
-  let result = {
-    page: Object.assign({
-      id: id
-    }, page)
-  };
-  result.company = JSON.parse(fs.readFileSync(companyJson, 'utf8'));
-  return result;
-}
-
-function resolveSectionReferences(section, id) {
-  if (id) section.id = id;
-  if (section.type === 'product') {
-    var products = JSON.parse(fs.readFileSync(productsJson, 'utf8'));
-    section.product = products[section.productid];
-  }
-  return section;
-}
 
 module.exports = router;

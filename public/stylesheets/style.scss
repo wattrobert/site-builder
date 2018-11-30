@@ -152,3 +152,27 @@ a.anchor {
         }
     }
 }
+
+.selectize-input {
+
+    &,
+    &.focus {
+        box-shadow: none;
+
+    }
+}
+
+.selectize-dropdown {
+    top: $input-height !important;
+}
+
+.selectize-control.single .selectize-input.input-active {
+    display: block !important;
+}
+
+.selectize-product-image {
+    width: 100px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}

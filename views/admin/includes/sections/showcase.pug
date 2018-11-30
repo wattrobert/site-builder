@@ -1,0 +1,15 @@
+.form-group
+  label(for="title") Section Name
+  input.form-control(id="name", name="name", value=showcase.name)
+.form-group
+  label(for="productid") Product
+  input(type="search", id="productid", name="productid", value=showcase.productid)
+.form-group
+  label(for="title") Button Text
+  input.form-control(id="button_text", name="button.text", value=showcase.button.text)
+.form-group
+  label(for="text") Button Link
+  input.form-control(id="button_link", name="button.link", value=showcase.button.link)
+
+div(data-products= products)
+script(src="/javascripts/product-selector.js", type="text/javascript")

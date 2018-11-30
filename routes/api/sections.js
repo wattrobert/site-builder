@@ -1,6 +1,7 @@
 var express = require('express');
 var fs = require('fs');
 var _ = require('lodash');
+var helpers = require('./../../helpers');
 var router = express.Router();
 var sectionsJson = __dirname + '/../../private/sections.json';
 
@@ -63,7 +64,7 @@ function addSection(data, sections) {
 }
 
 function updateSection(id, data, sections) {
-  sections[id] = data;
+  sections[id] = helpers.parseRequest(data, sections[id]);
   return sections;
 }
 
