@@ -9,28 +9,19 @@
         .input-group-prepend
           span(class="input-group-text")= url
         input(id="path", name="path", type="text", value= page.path, placeholder="Choose a path for your page starting with /", class="form-control", required)
-
+    
     .form-group
-      label(for="sections") Sections
-      #sections
-        each s in page.sections
-          .card.position-relative.mb-3
-            .card-body
-              a(class="float-right" title="Edit Section", href="/admin/sections/edit/" + s.id)
-                i(class="fa fa-edit")
-              h5= s.name
-              .section-snapshot-container
-                .section-snapshot
-                  case s.type
-                    when "cart"
-                      include ./../../public/includes/cart
-                    when "checkout"
-                      include ./../../public/includes/checkout
-                    when "jumbotron"
-                      include ./../../public/includes/jumbotron
-                    when "product"
-                      include ./../../public/includes/product
-              span(class="badge badge-secondary") #{s.type.replace(/^\w/, c => c.toUpperCase())}
+      hr
+      div(class="d-flex justify-content-between align-items-center")
+        div
+          label(class="h5 mb-0", for="sections") Sections
+          p.small Drag and drop to reorder the page.
+        button(type="button", class="btn btn-sm btn-primary ml-2" data-toggle="modal" data-target="#sectionSelector")
+          i.fa.fa-plus
+          span  Add Sections
+      input(type="hidden", id="sections", name="sections", value= page.sections.join(','))
+      #sortableSections
+        include sortable-sections
 
-script
-  include page.js
+
+include section-selector

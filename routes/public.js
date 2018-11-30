@@ -9,25 +9,27 @@ function generateRoutes(pages) {
 
   _.forEach(pages, (page, id) => {
     router.get(page.path, (req, res, next) => {
+      var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
+      var products = JSON.parse(fs.readFileSync(productsJson, 'utf8'));
       res.render('public/index', (function () {
         let result = Object.assign({
           id: id
         }, page);
         result.company = JSON.parse(fs.readFileSync(companyJson, 'utf8'));
-        var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
-        var products = JSON.parse(fs.readFileSync(productsJson, 'utf8'));
         if (result.sections && result.sections.length) {
           result.sections = _.map(_.map(result.sections, (sectionid) => {
             var s = sections[sectionid];
             s.id = sectionid;
             return s;
+
           }), (section) => {
-            section.product = section.type === 'product' ? products[section.productid] : null;
+            section.product = (section.type === 'product' ? products[section.productid] : null);
             return section;
           })
         } else {
           result.sections = [];
         }
+        console.log(result.sections);
         return result;
       })())
     })

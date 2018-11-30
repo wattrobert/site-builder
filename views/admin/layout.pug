@@ -2,11 +2,6 @@ extends ./../document
 
 block layout
   body
-    //- script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sortable/0.9.13/jquery-sortable-min.js")
-    style
-      include ./../../node_modules/selectize/dist/css/selectize.css
-    script
-      include ./../../node_modules/selectize/dist/js/standalone/selectize.js
     nav(class="navbar navbar-expand-md navbar-dark bg-dark fixed-top")
       .container
         a(class="navbar-brand", href="/") Site Builder
@@ -25,4 +20,7 @@ block layout
               a(class="nav-link" href="/admin/company") Company
 
     main
-      block content
+      block content    
+
+    script(src="/javascripts/snapshot.js", type="text/javascript")
+    script(src="/javascripts/sections.js", type="text/javascript")

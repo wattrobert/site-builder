@@ -14,10 +14,10 @@ block content
     hr
     .row
       .col-md-8
-        each s, id in sections
+        each s in sections
           .card.position-relative.mb-3
             .card-body
-              a(class="float-right" title="Edit Section", href="/admin/sections/edit/" + id)
+              a(class="float-right" title="Edit Section", href="/admin/sections/edit/" + s.id)
                 i(class="fa fa-edit")
               h5= s.name
               .section-snapshot-container
@@ -32,7 +32,3 @@ block content
                     when "product"
                       include ./../../public/includes/product
               span(class="badge badge-secondary") #{s.type.replace(/^\w/, c => c.toUpperCase())}
-
-
-    script
-      include snapshot.js

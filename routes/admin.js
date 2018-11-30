@@ -6,14 +6,7 @@ var companyJson = __dirname + '/../private/company.json';
 var sectionsJson = __dirname + '/../private/sections.json';
 var productsJson = __dirname + '/../private/products.json';
 var pagesJson = __dirname + '/../private/pages.json';
-var adminData = {
-  "url": "https://www.sitebuilder.io",
-  "meta": {
-    "title": "Site Builder",
-    "description": "Ultra-fast company websites for whoever needs 'em",
-    "image": null
-  }
-}
+var adminData = JSON.parse(fs.readFileSync(__dirname + '/../private/admin.json'));
 
 var hiddenSections = ['CART', 'CHECKOUT']
 
@@ -48,9 +41,15 @@ router.get('/products/edit/:id', function (req, res, next) {
 
 router.get('/pages', function (req, res, next) {
   var pages = JSON.parse(fs.readFileSync(pagesJson, 'utf8'));
-  res.render('admin/pages/list', Object.assign({
-    pages: pages
-  }, adminData));
+  try {
+    var data = Object.assign({
+      pages: pages
+    }, adminData);
+    res.render('admin/pages/list', data);
+  } catch (ex) {
+    console.log(ex);
+
+  }
 });
 
 router.get('/pages/create', function (req, res, next) {
@@ -69,14 +68,14 @@ router.get('/pages/edit/:id', function (req, res, next) {
   var pages = JSON.parse(fs.readFileSync(pagesJson, 'utf8'));
   var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
   res.render('admin/pages/edit', Object.assign({
-    sections: sections
+    sections: _.map(sections, resolveSectionReferences)
   }, resolveReferences(pages[req.params.id], req.params.id), adminData));
 })
 
 router.get('/sections', function (req, res, next) {
   var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
   res.render('admin/sections/list', Object.assign({
-    sections: _.map(_.omit(sections, hiddenSections), resolveSectionReferences)
+    sections: _.map(sections, resolveSectionReferences)
   }, adminData));
 });
 
@@ -114,22 +113,11 @@ function resolveReferences(page, id) {
     }, page)
   };
   result.company = JSON.parse(fs.readFileSync(companyJson, 'utf8'));
-  var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
-  var products = JSON.parse(fs.readFileSync(productsJson, 'utf8'));
-  if (result.page.sections && result.page.sections.length) {
-    result.page.selectedSections = sections;
-    result.page.sections = _.map(_.map(result.page.sections, (sectionid) => {
-      var s = sections[sectionid];
-      s.id = sectionid;
-      return s;
-    }), resolveSectionReferences)
-  } else {
-    result.page.sections = [];
-  }
   return result;
 }
 
-function resolveSectionReferences(section) {
+function resolveSectionReferences(section, id) {
+  if (id) section.id = id;
   if (section.type === 'product') {
     var products = JSON.parse(fs.readFileSync(productsJson, 'utf8'));
     section.product = products[section.productid];

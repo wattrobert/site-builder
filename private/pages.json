@@ -1,13 +1,11 @@
 {
   "0": {
-    "path": "/",
     "name": "home",
-    "meta": {
-      "title": "Site Builder",
-      "description": "Ultra-fast company websites for whoever needs 'em",
-      "image": null
-    },
-    "sections": ["0", "1"]
+    "path": "/",
+    "sections": [
+      "0",
+      "1"
+    ]
   },
   "1": {
     "path": "/cart",
@@ -17,7 +15,9 @@
       "description": "Ultra-fast company websites for whoever needs 'em",
       "image": null
     },
-    "sections": ["cart"]
+    "sections": [
+      "cart"
+    ]
   },
   "2": {
     "path": "/checkout",
@@ -27,6 +27,8 @@
       "description": "Ultra-fast company websites for whoever needs 'em",
       "image": null
     },
-    "sections": ["checkout"]
+    "sections": [
+      "checkout"
+    ]
   }
 }

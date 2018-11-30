@@ -1,0 +1,30 @@
+#sectionSelector.modal.fade
+  .modal-dialog(role="document")
+    .modal-content
+      .modal-header
+        h5.modal-title Select sections
+          small.text-muted.d-block Choose one or more sections for this page.
+        button(type="button" class="close" data-dismiss="modal" aria-label="Cancel")
+          span(aria-hidden="true") &times;
+      .modal-body.bg-light
+        each s in sections
+          li.section-option.card.mb-3.shadow-sm(data-id= s.id, id="section-option_" + s.id onclick="toggleSection('" + s.id + "')")
+            .card-body.small
+              h5= s.name
+              .section-snapshot-container
+                .section-snapshot
+                  case s.type
+                    when "cart"
+                      include ./../../public/includes/cart
+                    when "checkout"
+                      include ./../../public/includes/checkout
+                    when "jumbotron"
+                      include ./../../public/includes/jumbotron
+                    when "product"
+                      include ./../../public/includes/product
+              span(class="badge badge-secondary") #{s.type.replace(/^\w/, c => c.toUpperCase())}
+      .modal-footer.d-flex.align-items-center.justify-content-between
+        #selectionCount.text-muted 0 selected
+        span
+          button(type="button" class="btn btn-outline-dark" data-dismiss="modal") Cancel
+          button(type="button" id="addSelectionsBtn" class="ml-2 btn btn-primary", onclick="addSections()", disabled) Done

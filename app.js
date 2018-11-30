@@ -11,6 +11,8 @@ var publicRouter = require('./routes/public');
 var adminRouter = require('./routes/admin');
 var productsApi = require('./routes/api/products');
 var companyApi = require('./routes/api/company');
+var pagesApi = require('./routes/api/pages');
+var sectionsApi = require('./routes/api/sections');
 
 var app = express();
 
@@ -36,6 +38,8 @@ app.use(publicRouter(JSON.parse(fs.readFileSync(pagesJson, 'utf8'))));
 app.use('/admin', adminRouter);
 app.use('/api/products', productsApi);
 app.use('/api/company', companyApi);
+app.use('/api/pages', pagesApi);
+app.use('/api/sections', sectionsApi);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -50,7 +54,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', err);
 });
 
 module.exports = app;
