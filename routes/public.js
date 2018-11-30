@@ -13,7 +13,6 @@ function generateRoutes(req, res, next) {
   let page = Object.assign({
     id: pageid
   }, filteredPages[pageid]);
-  console.log(page);
   page.company = fs.readFileSync(__dirname + '/../private/company.json');
   page.id = pageid;
   page.sections = _.map(_.map(page.sections, (sectionid) => {

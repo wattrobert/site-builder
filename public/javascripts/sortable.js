@@ -12,6 +12,7 @@ Object.values(sortableElements).forEach((el) => {
     filter: '.fa-trash-alt',
     onFilter: (event) => {
       event.item.parentNode.removeChild(event.item);
+      $('#sections').val(sortables[el.id].toArray().join(','))
     },
     onUpdate: (event) => {
       $('#sections').val(sortables[el.id].toArray().join(','))

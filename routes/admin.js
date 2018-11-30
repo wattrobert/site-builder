@@ -66,16 +66,22 @@ router.get('/pages/create', function (req, res, next) {
 
 router.get('/pages/edit/:id', function (req, res, next) {
   var pages = JSON.parse(fs.readFileSync(pagesJson, 'utf8'));
-  var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
+  var sections = {};
+  _.map(JSON.parse(fs.readFileSync(sectionsJson, 'utf8')), resolveSectionReferences).forEach((s) => {
+    sections[s.id] = s;
+  });
+  console.log(sections);
+
   res.render('admin/pages/edit', Object.assign({
-    sections: _.map(sections, resolveSectionReferences)
+    sections: sections,
   }, resolveReferences(pages[req.params.id], req.params.id), adminData));
 })
 
 router.get('/sections', function (req, res, next) {
-  var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
+  var sections = _.map(JSON.parse(fs.readFileSync(sectionsJson, 'utf8')), resolveSectionReferences);
+  console.log(sections);
   res.render('admin/sections/list', Object.assign({
-    sections: _.map(sections, resolveSectionReferences)
+    sections: sections
   }, adminData));
 });
 
