@@ -2,7 +2,7 @@
   "0": {
     "name": "home",
     "path": "/",
-    "nav": "left",
+    "nav": "none",
     "sections": [
       "0",
       "1"

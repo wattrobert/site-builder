@@ -10,16 +10,18 @@ block layout
           i(class="fa fa-bars")
 
         #navbarCollapse.collapse.navbar-collapse
-          ul(class="navbar-nav mr-auto")
-            each navItem in navItems.left
-              li(class="nav-item")
-                a(class="nav-link" href= navItem.path)= navItem.name.replace(/^\w/, c => c.toUpperCase())
-          .form-inline
+          .form-inline.ml-3
             a(href="/admin", class="btn btn-sm btn-outline-primary") Admin
-          ul(class="navbar-nav ml-3")
-            each navItem in navItems.right
-              li(class="nav-item")
-                a(class="nav-link" href= navItem.path)= navItem.name.replace(/^\w/, c => c.toUpperCase())
+          if navItems.left && navItems.left.length
+            ul(class="navbar-nav mr-auto")
+              each navItem in navItems.left
+                li(class="nav-item")
+                  a(class="nav-link" href= navItem.path)= navItem.name.replace(/^\w/, c => c.toUpperCase())
+          if navItems.right && navItems.right.length
+            ul(class="navbar-nav ml-auto")
+              each navItem in navItems.right
+                li(class="nav-item")
+                  a(class="nav-link" href= navItem.path)= navItem.name.replace(/^\w/, c => c.toUpperCase())
 
     main(class="flex-grow-1")
       block content
