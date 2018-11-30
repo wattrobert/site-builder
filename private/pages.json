@@ -2,33 +2,29 @@
   "0": {
     "name": "home",
     "path": "/",
+    "nav": "left",
     "sections": [
       "0",
       "1"
     ]
   },
   "1": {
-    "path": "/cart",
     "name": "cart",
-    "meta": {
-      "title": "Site Builder | Shopping Cart",
-      "description": "Ultra-fast company websites for whoever needs 'em",
-      "image": null
-    },
+    "nav": "right",
+    "path": "/cart",
     "sections": [
-      "cart"
+      "cart",
+      "1",
+      "1"
     ]
   },
   "2": {
-    "path": "/checkout",
     "name": "checkout",
-    "meta": {
-      "title": "Site Builder | Checkout",
-      "description": "Ultra-fast company websites for whoever needs 'em",
-      "image": null
-    },
+    "nav": false,
+    "path": "/checkout",
     "sections": [
-      "checkout"
+      "checkout",
+      "cart"
     ]
   }
 }

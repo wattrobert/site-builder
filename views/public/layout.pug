@@ -3,7 +3,7 @@ extends ./../document
 block layout
   body(class="d-flex h-100 flex-column flex-nowrap")
 
-    nav(class="navbar navbar-expand-md navbar-dark bg-dark fixed-top")
+    nav(class="navbar navbar-expand-md navbar-light bg-light fixed-top")
       .container
         a(class="navbar-brand", href="/")= company.brand
         button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation")
@@ -11,13 +11,15 @@ block layout
 
         #navbarCollapse.collapse.navbar-collapse
           ul(class="navbar-nav mr-auto")
-            li(class="nav-item")
-              a(class="nav-link" href="/") Home
+            each navItem in navItems.left
+              li(class="nav-item")
+                a(class="nav-link" href= navItem.path)= navItem.name.replace(/^\w/, c => c.toUpperCase())
           .form-inline
-            a(href="/admin", class="btn btn-sm btn-outline-light") Admin
+            a(href="/admin", class="btn btn-sm btn-outline-primary") Admin
           ul(class="navbar-nav ml-3")
-            li(class="nav-item")
-              a(class="nav-link" href="/cart") Cart
+            each navItem in navItems.right
+              li(class="nav-item")
+                a(class="nav-link" href= navItem.path)= navItem.name.replace(/^\w/, c => c.toUpperCase())
 
     main(class="flex-grow-1")
       block content

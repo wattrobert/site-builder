@@ -9,7 +9,20 @@
         .input-group-prepend
           span(class="input-group-text")= url
         input(id="path", name="path", type="text", value= page.path, placeholder="Choose a path for your page starting with /", class="form-control", required)
-    
+    label(for="navigation") Navigation Display
+    #navigation.form-group
+      - var isNone = page.nav === 'none' || !page.nav;
+      - var isLeft = page.nav === 'left';
+      - var isRight = page.nav === 'right';
+      .custom-control.custom-radio.custom-control-inline
+        input(type="radio", id="nav_off", name="nav", class="custom-control-input" value="none", checked= isNone)
+        label(class="custom-control-label", for="nav_off") None
+      .custom-control.custom-radio.custom-control-inline
+        input(type="radio", id="nav_left", name="nav", class="custom-control-input" value="left", checked= isLeft)
+        label(class="custom-control-label", for="nav_left") Left
+      .custom-control.custom-radio.custom-control-inline
+        input(type="radio", id="nav_right", name="nav", class="custom-control-input" value="right", checked= isRight)
+        label(class="custom-control-label", for="nav_right") Right
     .form-group
       hr
       div(class="d-flex justify-content-between align-items-center")

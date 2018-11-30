@@ -15,7 +15,7 @@ block content
     .row
       .col-md-8
         each s in sections
-          .card.position-relative.mb-3
+          .card.position-relative.mb-3.shadow-sm
             .card-body
               a(class="float-right" title="Edit Section", href="/admin/sections/edit/" + s.id)
                 i(class="fa fa-edit")
@@ -31,4 +31,4 @@ block content
                       include ./../../public/includes/jumbotron
                     when "product"
                       include ./../../public/includes/product
-              span(class="badge badge-secondary") #{s.type.replace(/^\w/, c => c.toUpperCase())}
+                span(class="badge badge-secondary") #{s.type.replace(/^\w/, c => c.toUpperCase())}

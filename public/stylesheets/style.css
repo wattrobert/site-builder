@@ -6350,7 +6350,7 @@ a.anchor {
   .sortable-list-item .sortable-list-item-handle {
     position: absolute;
     left: 20px;
-    top: 24px;
+    top: 24.39024px;
     cursor: move;
     /* fallback if grab cursor is unsupported */
     cursor: grab;
@@ -6362,29 +6362,32 @@ a.anchor {
     border: 2px dashed #6c757d; }
 
 .section-snapshot-container {
-  position: relative;
-  transform-origin: 0 0;
-  transform: scale(2, 1);
   min-height: 75px;
   max-height: 150px;
-  overflow: hidden; }
-  .section-snapshot-container + .badge {
+  overflow: hidden;
+  position: relative;
+  transform-origin: 0 0;
+  transform: scale(2, 1); }
+  .section-snapshot-container .badge {
     position: absolute;
-    left: 20px;
-    top: 52px;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0; }
+    left: 0;
+    top: 0;
+    transform: scaleX(0.5);
+    transform-origin: 0 0;
+    z-index: 3;
+    border-radius: 0 0 4px 0; }
   .section-snapshot-container:after {
     content: '';
-    border: 1px solid #ddd;
+    border-style: solid;
+    border-color: #ddd;
+    border-width: 1.5px 1px 1.5px 1px;
     z-index: 3;
     background: transparent;
     position: absolute;
     left: 0;
     right: 50%;
     top: 0;
-    bottom: 0;
-    border-radius: 4px; }
+    bottom: 0; }
 
 .section-snapshot {
   max-height: 300px;
@@ -6406,8 +6409,6 @@ a.anchor {
   #sectionSelector .section-option h5 {
     margin-top: 0;
     font-size: 1.4em; }
-  #sectionSelector .section-option .badge {
-    top: 49px; }
   #sectionSelector .section-option:after {
     border-radius: 4px;
     position: absolute;

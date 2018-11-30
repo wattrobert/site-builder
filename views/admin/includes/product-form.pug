@@ -13,14 +13,12 @@ div(class="row")
     div(class="form-group")
       label(for="description") Description
       textarea(id="description", rows="7", name="description", placeholder="Describe your product", class="form-control", required)= product.description
-    div(class="row")
-      div(class="col-sm-7 col-md-8")
-        div(class="form-group")
-          label(for="image") Image
-          div(class="input-group")
-            div(class="input-group-prepend")
-              i(class="input-group-text fas fa-link")
-            input(id="image", name="image", type="text", value= product.image, class="form-control")
-      div(class="col-sm-5 col-md-4")
-        figure
-          img(src= product.image, class="w-100 img-thumbnail")
+  div(class="col-md-4")
+    div(class="form-group")
+      label(for="image") Image
+      div(class="input-group")
+        div(class="input-group-prepend")
+          i(class="input-group-text fas fa-link")
+        input(id="image", name="image", type="text", value= product.image, class="form-control")
+    figure
+      img(src= product.image, class="w-100 img-thumbnail")

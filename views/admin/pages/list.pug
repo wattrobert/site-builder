@@ -16,7 +16,7 @@ block content
               .row.align-items-center
                 .col
                   h5(class="mb-0")= page.name
-                  a(href="#")
+                  a(href= page.path)
                     code= url + page.path
                 .col-auto.text-right
                   a(class="ml-2", href="/admin/pages/edit/" + id)
