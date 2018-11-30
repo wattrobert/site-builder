@@ -79,8 +79,9 @@ router.get('/sections/refresh', (req, res) => {
 })
 
 function addPage(data, pages) {
-  var pageids = _.sortBy(_.without(_.keys(pages), 'cart', 'checkout'));
+  var pageids = _.sortBy(_.without(_.keys(pages), ['cart', 'checkout']));
   var nextid = Number(pageids.pop()) + 1;
+  data.sections = data.sections.split(',');
   pages[nextid] = data;
   return pages;
 }

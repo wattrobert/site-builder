@@ -15,13 +15,14 @@
       div(class="d-flex justify-content-between align-items-center")
         div
           label(class="h5 mb-0", for="sections") Sections
-          p.small Drag and drop to reorder the page.
+          p.small.mb-0 Drag and drop to reorder the page.
         button(type="button", class="btn btn-sm btn-primary ml-2" data-toggle="modal" data-target="#sectionSelector")
           i.fa.fa-plus
           span  Add Sections
       input(type="hidden", id="sections", name="sections", value= page.sections.join(','))
       #sortableSections
-        include sortable-sections
+        if page.sections
+          include sortable-sections
 
 
 include section-selector

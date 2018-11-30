@@ -57,7 +57,7 @@ router.get('/pages/create', function (req, res, next) {
   var sections = JSON.parse(fs.readFileSync(sectionsJson, 'utf8'));
   res.render('admin/pages/create', Object.assign({
     pages: pages,
-    sections: _.omit(sections, hiddenSections),
+    sections: _.map(sections, resolveSectionReferences),
     page: {
       sections: []
     }

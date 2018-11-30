@@ -19,7 +19,8 @@ function removeSection(index) {
 }
 
 function addSections() {
-  var oldSections = $('#sections').val().split(',');
+  var val = $('#sections').val();
+  var oldSections = val && val.length ? val.split(',') : [];
   var newSections = $('.section-option.selected').toArray().map((element) => element.attributes['data-id'].value);
   var currentSections = oldSections.concat(newSections);
   $('#sections').val(currentSections.join(','));
