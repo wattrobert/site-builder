@@ -11,17 +11,14 @@
         input(id="path", name="path", type="text", value= page.path, placeholder="Choose a path for your page starting with /", class="form-control", required)
     label(for="navigation") Navigation Display
     #navigation.form-group
-      - var isNone = page.nav === 'none' || !page.nav;
-      - var isLeft = page.nav === 'left';
-      - var isRight = page.nav === 'right';
       .custom-control.custom-radio.custom-control-inline
-        input(type="radio", id="nav_off", name="nav", class="custom-control-input" value="none", checked= isNone)
+        input(type="radio", id="nav_off", name="nav", class="custom-control-input" value="none", checked= (page.nav === 'none' || !page.nav))
         label(class="custom-control-label", for="nav_off") None
       .custom-control.custom-radio.custom-control-inline
-        input(type="radio", id="nav_left", name="nav", class="custom-control-input" value="left", checked= isLeft)
+        input(type="radio", id="nav_left", name="nav", class="custom-control-input" value="left", checked= (page.nav === 'left'))
         label(class="custom-control-label", for="nav_left") Left
       .custom-control.custom-radio.custom-control-inline
-        input(type="radio", id="nav_right", name="nav", class="custom-control-input" value="right", checked= isRight)
+        input(type="radio", id="nav_right", name="nav", class="custom-control-input" value="right", checked= (page.nav === 'right'))
         label(class="custom-control-label", for="nav_right") Right
     .form-group
       hr

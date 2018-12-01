@@ -24,5 +24,13 @@
     "sections": [
       "checkout"
     ]
+  },
+  "3": {
+    "name": "about",
+    "path": "/about-us",
+    "nav": "left",
+    "sections": [
+      "3"
+    ]
   }
 }

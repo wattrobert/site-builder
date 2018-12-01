@@ -4,6 +4,17 @@
 .form-group
   label(for="productid") Product
   input(type="search", id="productid", name="productid", value=showcase.productid)
+label(for="alignment") Alignment
+#alignment.form-group
+  .custom-control.custom-radio.custom-control-inline
+    input(type="radio", id="align_left", name="align", class="custom-control-input" value="left", checked= (showcase.align === 'left' || !showcase.align))
+    label(class="custom-control-label", for="align_left") Left
+  .custom-control.custom-radio.custom-control-inline
+    input(type="radio", id="align_center", name="align", class="custom-control-input" value="center", checked= (showcase.align === 'center'))
+    label(class="custom-control-label", for="align_center") Center
+  .custom-control.custom-radio.custom-control-inline
+    input(type="radio", id="align_right", name="align", class="custom-control-input" value="right", checked= (showcase.align === 'right'))
+    label(class="custom-control-label", for="align_right") Right
 .form-group
   label(for="title") Button Text
   input.form-control(id="button_text", name="button.text", value=showcase.button.text)
