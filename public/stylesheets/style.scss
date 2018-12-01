@@ -1,6 +1,11 @@
 @import "./variables";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
+html,
+body {
+    max-width: 100vw;
+}
+
 body {
     overflow-x: hidden;
 
@@ -9,6 +14,40 @@ body {
 
         section {
             position: relative;
+        }
+
+        @include media-breakpoint-down(xs) {
+            font-size: 14px;
+
+            h6,
+            .h6 {
+                font-size: 14px;
+            }
+
+            h5,
+            .h5 {
+                font-size: 16px;
+            }
+
+            h4,
+            .h4 {
+                font-size: 18px;
+            }
+
+            h3,
+            .h3 {
+                font-size: 20px;
+            }
+
+            h2,
+            .h2 {
+                font-size: 24px;
+            }
+
+            h1,
+            .h1 {
+                font-size: 28px;
+            }
         }
     }
 }
@@ -45,13 +84,8 @@ a.anchor {
 
 .sortable-list-item {
     overflow: hidden;
-    padding-left: $grid-gutter-width;
-    margin-bottom: $grid-gutter-width/2;
 
     .sortable-list-item-handle {
-        position: absolute;
-        left: $grid-gutter-width/1.5;
-        top: $grid-gutter-width/1.23;
         cursor: move;
         /* fallback if grab cursor is unsupported */
         cursor: grab;
@@ -175,4 +209,25 @@ a.anchor {
     overflow: hidden;
     background-size: cover;
     background-position: center;
+}
+
+@include media-breakpoint-down(xs) {
+    .responsive-buttons {
+        background: $body-bg;
+        z-index: 3;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: stretch;
+        padding: $grid-gutter-width/2;
+        border-top: 1px solid #ddd;
+
+        &>.dropdown,
+        &>.btn {
+            flex: 1;
+        }
+    }
 }

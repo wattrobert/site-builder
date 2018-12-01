@@ -447,8 +447,8 @@ pre {
 
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 7.5px;
+  padding-left: 7.5px;
   margin-right: auto;
   margin-left: auto; }
   @media (min-width: 576px) {
@@ -466,16 +466,16 @@ pre {
 
 .container-fluid {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 7.5px;
+  padding-left: 7.5px;
   margin-right: auto;
   margin-left: auto; }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px; }
+  margin-right: -7.5px;
+  margin-left: -7.5px; }
 
 .no-gutters {
   margin-right: 0;
@@ -494,8 +494,8 @@ pre {
   position: relative;
   width: 100%;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px; }
+  padding-right: 7.5px;
+  padding-left: 7.5px; }
 
 .col {
   flex-basis: 0;
@@ -3148,25 +3148,25 @@ input[type="button"].btn-block {
   display: flex;
   flex-direction: column; }
   .card-deck .card {
-    margin-bottom: 15px; }
+    margin-bottom: 7.5px; }
   @media (min-width: 576px) {
     .card-deck {
       flex-flow: row wrap;
-      margin-right: -15px;
-      margin-left: -15px; }
+      margin-right: -7.5px;
+      margin-left: -7.5px; }
       .card-deck .card {
         display: flex;
         flex: 1 0 0%;
         flex-direction: column;
-        margin-right: 15px;
+        margin-right: 7.5px;
         margin-bottom: 0;
-        margin-left: 15px; } }
+        margin-left: 7.5px; } }
 
 .card-group {
   display: flex;
   flex-direction: column; }
   .card-group > .card {
-    margin-bottom: 15px; }
+    margin-bottom: 7.5px; }
   @media (min-width: 576px) {
     .card-group {
       flex-flow: row wrap; }
@@ -6312,12 +6312,37 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
+html,
+body {
+  max-width: 100vw; }
+
 body {
   overflow-x: hidden; }
   body main {
     margin-top: 3.5em; }
     body main section {
       position: relative; }
+    @media (max-width: 575.98px) {
+      body main {
+        font-size: 14px; }
+        body main h6,
+        body main .h6 {
+          font-size: 14px; }
+        body main h5,
+        body main .h5 {
+          font-size: 16px; }
+        body main h4,
+        body main .h4 {
+          font-size: 18px; }
+        body main h3,
+        body main .h3 {
+          font-size: 20px; }
+        body main h2,
+        body main .h2 {
+          font-size: 24px; }
+        body main h1,
+        body main .h1 {
+          font-size: 28px; } }
 
 #HEADER {
   position: relative;
@@ -6340,17 +6365,12 @@ a.anchor {
 
 .card-actions {
   position: absolute;
-  top: 15px;
-  right: 15px; }
+  top: 7.5px;
+  right: 7.5px; }
 
 .sortable-list-item {
-  overflow: hidden;
-  padding-left: 30px;
-  margin-bottom: 15px; }
+  overflow: hidden; }
   .sortable-list-item .sortable-list-item-handle {
-    position: absolute;
-    left: 20px;
-    top: 24.39024px;
     cursor: move;
     /* fallback if grab cursor is unsupported */
     cursor: grab;
@@ -6437,5 +6457,22 @@ a.anchor {
   overflow: hidden;
   background-size: cover;
   background-position: center; }
+
+@media (max-width: 575.98px) {
+  .responsive-buttons {
+    background: #fff;
+    z-index: 3;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+    padding: 7.5px;
+    border-top: 1px solid #ddd; }
+    .responsive-buttons > .dropdown,
+    .responsive-buttons > .btn {
+      flex: 1; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -15,15 +15,6 @@
     },
     "align": "right"
   },
-  "2": {
-    "type": "showcase",
-    "name": "Smart Watch Showcase",
-    "productid": "1",
-    "button": {
-      "text": "Take my money!",
-      "link": "/cart"
-    }
-  },
   "3": {
     "button": {
       "text": "",
@@ -33,6 +24,16 @@
     "name": "About Us",
     "title": "What is Site Builder?",
     "text": "It's a lightening fast way to start selling your ResponseCRM products. Create working store in seconds."
+  },
+  "4": {
+    "button": {
+      "text": "Take my Money!",
+      "link": "/cart"
+    },
+    "type": "showcase",
+    "name": "Smart Watch",
+    "productid": "1",
+    "align": "left"
   },
   "cart": {
     "type": "cart",

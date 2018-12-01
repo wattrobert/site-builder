@@ -22,13 +22,11 @@
         label(class="custom-control-label", for="nav_right") Right
     .form-group
       hr
-      div(class="d-flex justify-content-between align-items-center")
-        .mb-3
+      div(class="d-flex justify-content-between align-items-center mb-3")
+        div
           label(class="h5 mb-0", for="sections") Sections
           p.small.mb-0 Drag and drop to reorder the page.
-        button(type="button", class="btn btn-sm btn-primary ml-2" data-toggle="modal" data-target="#sectionSelector")
-          i.fa.fa-plus
-          span  Add Sections
+        button(type="button", class="btn btn-sm btn-primary ml-2" data-toggle="modal" data-target="#sectionSelector") Add Sections
       input(type="hidden", id="sections", name="sections", value= page.sections.join(','))
       #sortableSections
         if page.sections.length

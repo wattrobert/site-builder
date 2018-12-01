@@ -1,26 +1,16 @@
-ol(id="sections", class="sortable-list p-0 m-0")
+ol(id="sections", class="list-group flex-column sortable-list p-0 m-0")
   each sid in page.sections
     - var s = sections[sid];
-    li(id= sid, class="card position-relative sortable-list-item shadow-sm")
-      i(class="fa fa-grip-vertical sortable-list-item-handle text-muted")
-      .card-body.position-relative
-        div(class="float-right")
+    li(id= sid, class="list-group-item position-relative sortable-list-item")
+      .position-relative.d-flex.align-items-center
+        i(class="fa fa-grip-vertical mr-3 sortable-list-item-handle text-muted")
+        h5.mb-0= s.name
+          br
+          code(class="badge badge-secondary small") #{s.type.replace(/^\w/, c => c.toUpperCase())}
+        div(class="ml-auto")
           a(class="btn btn-link p-0" title="Edit Section", href="/admin/sections/edit/" + sid)
             i(class="fa fa-edit")
           button.btn.btn-link.sortable-remove.p-0.ml-2
             i(class="fa fa-trash-alt text-danger" title="Remove Section")
-        h5= s.name
-        .section-snapshot-container
-          .section-snapshot
-            case s.type
-              when "cart"
-                include ./../../public/includes/cart
-              when "checkout"
-                include ./../../public/includes/checkout
-              when "jumbotron"
-                include ./../../public/includes/jumbotron
-              when "showcase"
-                include ./../../public/includes/showcase
-          span(class="badge badge-secondary") #{s.type.replace(/^\w/, c => c.toUpperCase())}
         
 script(src="/javascripts/sortable.js", type="text/javascript")

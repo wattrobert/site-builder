@@ -1,12 +1,12 @@
 extends ./../layout
 
 block content
-  form(class="container pt-4", method="POST", action="/api/products", enctype="application/x-www-form-urlencoded")
+  form(class="container pt-4 pb-5", method="POST", action="/api/products", enctype="application/x-www-form-urlencoded")
     div(class="d-flex justify-content-between align-items-end")
       h1(class="h4 mb-0")
         span(class="font-weight-light") Creating:
         span  New Product
-      div
+      div.responsive-buttons
         a(class="btn btn-outline-dark", href="/admin/products") Cancel
         button(type="submit", class="btn btn-success ml-2") Finish
     hr
