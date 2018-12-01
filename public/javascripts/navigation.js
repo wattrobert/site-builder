@@ -1,4 +1,3 @@
 let route = window.location.pathname;
-console.log(route);
-$('.nav-link[href="' + route + '"]').addClass('active');
-// console.log(route);
+let split = route.split('/');
+$('.nav-link[href="/' + split[1] + '/' + split[2] + '"]').addClass('active');

@@ -5074,7 +5074,7 @@ button.bg-dark:focus {
 .shadow-sm {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important; }
 
-.shadow, .sitebuilder-logo {
+.shadow {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; }
 
 .shadow-lg {
@@ -6516,7 +6516,6 @@ a.anchor {
   position: relative; }
 
 .sitebuilder-logo {
-  background: #3b4248;
   display: inline-flex;
   width: auto;
   height: 40px;
@@ -6526,8 +6525,6 @@ a.anchor {
   padding: 0 0.5em; }
   .sitebuilder-logo span {
     font-size: 1.4em; }
-    .sitebuilder-logo span:nth-child(1) {
-      color: #f8f9fa; }
     .sitebuilder-logo span:nth-child(2) {
       color: #007bff;
       font-weight: bold; }
@@ -6537,12 +6534,8 @@ a.anchor {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 200px; }
-  .admin-navigation .nav-pills .nav-link {
-    color: #f8f9fa; }
-  .admin-navigation .nav-pills .nav-link.active,
-  .admin-navigation .nav-pills .show > .nav-link {
-    background-color: #4b545c; }
+  width: 200px;
+  border-right: 1px solid #dee2e6; }
 
 .admin-main-content {
   margin-left: 200px; }

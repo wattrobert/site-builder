@@ -274,8 +274,6 @@ a.anchor {
 }
 
 .sitebuilder-logo {
-    background: lighten($dark, 3);
-    @extend .shadow;
     display: inline-flex;
     width: auto;
     height: 40px;
@@ -286,10 +284,6 @@ a.anchor {
 
     span {
         font-size: 1.4em;
-
-        &:nth-child(1) {
-            color: $light;
-        }
 
         &:nth-child(2) {
             color: $primary;
@@ -304,19 +298,7 @@ a.anchor {
     top: 0;
     bottom: 0;
     width: $admin-navigation-width;
-
-
-    .nav-pills {
-
-        .nav-link {
-            color: $light;
-        }
-
-        .nav-link.active,
-        .show>.nav-link {
-            background-color: lighten($dark, 10);
-        }
-    }
+    border-right: 1px solid $table-border-color;
 }
 
 .admin-main-content {
