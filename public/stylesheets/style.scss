@@ -104,6 +104,27 @@ a.anchor {
     }
 }
 
+.section-preview {
+    border-radius: 4px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    &:after {
+
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        box-shadow: inset 2px 4px 20px 1px rgba(0, 0, 0, 0.13);
+        z-index: 3;
+        content: ' ';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+    }
+}
+
 .section-snapshot-container {
     min-height: 75px;
     max-height: 150px;
@@ -120,20 +141,6 @@ a.anchor {
         transform-origin: 0 0;
         z-index: 3;
         border-radius: 0 0 4px 0;
-    }
-
-    &:after {
-        content: '';
-        border-style: solid;
-        border-color: #ddd;
-        border-width: 1.5px 1px 1.5px 1px;
-        z-index: 3;
-        background: transparent;
-        position: absolute;
-        left: 0;
-        right: 50%;
-        top: 0;
-        bottom: 0;
     }
 
 }

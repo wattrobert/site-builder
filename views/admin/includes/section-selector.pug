@@ -11,19 +11,19 @@
           li.section-option.card.mb-3.shadow-sm(data-id= s.id, id="section-option_" + s.id onclick="toggleSection('" + s.id + "')")
             .card-body.small
               h5= s.name
-                br
-                span(class="badge badge-secondary small") #{s.type.replace(/^\w/, c => c.toUpperCase())}
-              .section-snapshot-container
-                .section-snapshot
-                  case s.type
-                    when "cart"
-                      include ./../../public/includes/cart
-                    when "checkout"
-                      include ./../../public/includes/checkout
-                    when "jumbotron"
-                      include ./../../public/includes/jumbotron
-                    when "showcase"
-                      include ./../../public/includes/showcase
+                span(class="text-primary d-block small") #{s.type.replace(/^\w/, c => c.toUpperCase())}
+              .section-preview
+                .section-snapshot-container
+                  .section-snapshot
+                    case s.type
+                      when "cart"
+                        include ./../../public/includes/cart
+                      when "checkout"
+                        include ./../../public/includes/checkout
+                      when "jumbotron"
+                        include ./../../public/includes/jumbotron
+                      when "showcase"
+                        include ./../../public/includes/showcase
       .modal-footer.d-flex.align-items-center.justify-content-between
         #selectionCount.text-muted 0 selected
         span

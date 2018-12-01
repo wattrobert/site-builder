@@ -5,8 +5,7 @@ ol(id="sections", class="list-group flex-column sortable-list p-0 m-0")
       .position-relative.d-flex.align-items-center
         i(class="fa fa-grip-vertical mr-3 sortable-list-item-handle text-muted")
         h5.mb-0= s.name
-          br
-          code(class="badge badge-secondary small") #{s.type.replace(/^\w/, c => c.toUpperCase())}
+          span(class="d-block text-primary small") #{s.type.replace(/^\w/, c => c.toUpperCase())}
         div(class="ml-auto")
           a(class="btn btn-link p-0" title="Edit Section", href="/admin/sections/edit/" + sid)
             i(class="fa fa-edit")
