@@ -6,14 +6,13 @@
     "sections": [
       "0",
       "4",
-      "1",
-      "4"
+      "1"
     ]
   },
   "1": {
     "name": "cart",
     "path": "/cart",
-    "nav": "right",
+    "nav": "none",
     "sections": [
       "cart"
     ]
@@ -21,15 +20,16 @@
   "2": {
     "name": "checkout",
     "path": "/checkout",
-    "nav": "none",
+    "nav": "right",
     "sections": [
+      "cart",
       "checkout"
     ]
   },
   "3": {
     "name": "about",
     "path": "/about-us",
-    "nav": "left",
+    "nav": "none",
     "sections": [
       "3"
     ]

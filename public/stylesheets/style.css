@@ -6463,16 +6463,14 @@ a.anchor {
   background-size: cover;
   background-position: center; }
 
-.responsive-buttons {
-  padding: 7.5px 15px; }
-
-@media (max-width: 575.98px) {
+@media (max-width: 767.98px) {
   .responsive-buttons {
+    padding: 7.5px;
     background: #fff;
     z-index: 3;
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: 200px;
     right: 0;
     display: flex;
     flex-flow: row wrap;
@@ -6552,6 +6550,9 @@ a.anchor {
     border-bottom: 1px solid #dee2e6;
     background: #fff;
     margin-left: 200px;
-    padding-left: 15px; }
+    padding-left: 15px;
+    padding-right: 15px; }
+    .admin-main-content .fixed-top > .d-flex {
+      height: 60px; }
 
 /*# sourceMappingURL=style.css.map */

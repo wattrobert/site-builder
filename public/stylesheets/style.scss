@@ -1,5 +1,6 @@
 @import "./variables";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+$product-list-gutter-width: $grid-gutter-width/2;
 
 html,
 body {
@@ -218,17 +219,14 @@ a.anchor {
     background-position: center;
 }
 
-.responsive-buttons {
-    padding: $grid-gutter-width/4 $grid-gutter-width/2;
-}
-
-@include media-breakpoint-down(xs) {
+@include media-breakpoint-down(sm) {
     .responsive-buttons {
+        padding: $grid-gutter-width/4;
         background: $body-bg;
         z-index: 3;
         position: fixed;
         bottom: 0;
-        left: 0;
+        left: $admin-navigation-width;
         right: 0;
         display: flex;
         flex-flow: row wrap;
@@ -241,8 +239,6 @@ a.anchor {
         }
     }
 }
-
-$product-list-gutter-width: $grid-gutter-width/2;
 
 .product-list {
     @include make-row();
@@ -272,7 +268,6 @@ $product-list-gutter-width: $grid-gutter-width/2;
     }
 }
 
-$admin-navigation-width: 200px;
 
 .admin-container {
     position: relative;
@@ -332,5 +327,11 @@ $admin-navigation-width: 200px;
         background: $white;
         margin-left: $admin-navigation-width;
         padding-left: $grid-gutter-width/2;
+        padding-right: $grid-gutter-width/2;
+
+        >.d-flex {
+
+            height: 60px;
+        }
     }
 }
