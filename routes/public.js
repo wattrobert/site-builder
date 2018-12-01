@@ -17,7 +17,7 @@ function dynamicRoutes(req, res, next) {
       id: pathMatch[0]
     }, allPages[pathMatch[0]]);
 
-    page.navItems = buildNavItems(allPages);
+    page.navItems = buildNavItems(page, allPages);
     page.company = company;
     page.sections = buildSections(page, sections);
 
@@ -28,7 +28,7 @@ function dynamicRoutes(req, res, next) {
 
 }
 
-function buildNavItems(pages) {
+function buildNavItems(page, pages) {
   return _.groupBy(_.filter(pages, (page) => {
     return page.nav !== 'none';
   }), 'nav');

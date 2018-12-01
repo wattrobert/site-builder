@@ -18,7 +18,7 @@ router.get('/products', function (req, res, next) {
 
 router.get('/products/create', function (req, res, next) {
   res.render('admin/products/create', Object.assign({
-    product: helpers.product.default()
+    product: helpers.products.default()
   }, helpers.admin.get()));
 });
 

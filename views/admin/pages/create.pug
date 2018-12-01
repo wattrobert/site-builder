@@ -1,15 +1,15 @@
 extends ./../layout
 
 block content
-  .container.pt-3.pb-5
+  .container-fluid.pt-3.pb-5
     form(method="POST", action="/api/pages", enctype="application/x-www-form-urlencoded")
-      div(class="d-flex justify-content-between align-items-end")
+      .fixed-top
+        div.d-flex.justify-content-between.align-items-center
 
-        h1(class="h4 mb-0")
-          span(class="font-weight-light") Create:
-          span  New Page
-        div.responsive-buttons
-          a(href="/admin/pages", class="btn btn-outline-dark") Cancel
-          button(type="submit", class="btn btn-success ml-2") Finish
-      hr
+          h1(class="h4 mb-0")
+            span(class="font-weight-light") Create:
+            span  New Page
+          div.responsive-buttons
+            a(href="/admin/pages", class="btn btn-outline-dark") Cancel
+            button(type="submit", class="btn btn-success ml-2") Finish
       include ./../includes/page-form

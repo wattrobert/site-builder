@@ -211,6 +211,10 @@ a.anchor {
     background-position: center;
 }
 
+.responsive-buttons {
+    padding: $grid-gutter-width/4 $grid-gutter-width/2;
+}
+
 @include media-breakpoint-down(xs) {
     .responsive-buttons {
         background: $body-bg;
@@ -222,12 +226,104 @@ a.anchor {
         display: flex;
         flex-flow: row wrap;
         justify-content: stretch;
-        padding: $grid-gutter-width/2;
         border-top: 1px solid #ddd;
 
         &>.dropdown,
         &>.btn {
             flex: 1;
         }
+    }
+}
+
+$product-list-gutter-width: $grid-gutter-width/2;
+
+.product-list {
+    @include make-row();
+    margin-left: $product-list-gutter-width/-2;
+    margin-right: $product-list-gutter-width/-2;
+
+    .product-list-item {
+        @include make-col-ready();
+        padding-left: $product-list-gutter-width/2;
+        padding-right: $product-list-gutter-width/2;
+
+        @include media-breakpoint-up(sm) {
+            @include make-col(6);
+        }
+
+        @include media-breakpoint-up(md) {
+            @include make-col(4);
+        }
+
+        @include media-breakpoint-up(lg) {
+            @include make-col(3);
+        }
+
+        @include media-breakpoint-up(xl) {
+            @include make-col(2);
+        }
+    }
+}
+
+$admin-navigation-width: 200px;
+
+.admin-container {
+    position: relative;
+}
+
+.sitebuilder-logo {
+    background: lighten($dark, 3);
+    @extend .shadow;
+    display: inline-flex;
+    width: auto;
+    height: 40px;
+    border-radius: 8px;
+    align-items: center;
+    margin: 0 0 0.5em;
+    padding: 0 0.5em;
+
+    span {
+        font-size: 1.4em;
+
+        &:nth-child(1) {
+            color: $light;
+        }
+
+        &:nth-child(2) {
+            color: $primary;
+            font-weight: bold;
+        }
+    }
+}
+
+.admin-navigation {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: $admin-navigation-width;
+
+
+    .nav-pills {
+
+        .nav-link {
+            color: $light;
+        }
+
+        .nav-link.active,
+        .show>.nav-link {
+            background-color: lighten($dark, 10);
+        }
+    }
+}
+
+.admin-main-content {
+    margin-left: $admin-navigation-width;
+
+    .fixed-top {
+        border-bottom: 1px solid $table-border-color;
+        background: $white;
+        margin-left: $admin-navigation-width;
+        padding-left: $grid-gutter-width/2;
     }
 }

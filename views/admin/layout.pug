@@ -1,26 +1,24 @@
 extends ./../document
 
 block layout
-  body
-    nav(class="navbar navbar-expand-md navbar-dark bg-dark fixed-top")
-      .container
-        a(class="navbar-brand", href="/") Site Builder
-        button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation")
-          i(class="fa fa-bars")
+  body.admin-container
+    nav.admin-navigation.p-2.bg-dark
+      .sitebuilder-logo 
+        span Site
+        span.text-primary builder
+      ul.nav.nav-pills.nav-dark.text-light.flex-column
+        li.nav-item
+          a.nav-link(href="/admin/pages") Pages
+        li.nav-item
+          a.nav-link(href="/admin/sections") Sections
+        li.nav-item
+          a.nav-link(href="/admin/products") Products
+        li.nav-item
+          a.nav-link(href="/admin/company") Company
 
-        #navbarCollapse.collapse.navbar-collapse
-          ul(class="navbar-nav mr-auto")
-            li(class="nav-item")
-              a(class="nav-link" href="/admin/pages") Pages
-            li(class="nav-item")
-              a(class="nav-link" href="/admin/sections") Sections
-            li(class="nav-item")
-              a(class="nav-link" href="/admin/products") Products
-            li(class="nav-item")
-              a(class="nav-link" href="/admin/company") Company
-
-    main
+    main.admin-main-content
       block content    
 
+    script(src="/javascripts/navigation.js", type="text/javascript")
     script(src="/javascripts/snapshot.js", type="text/javascript")
     script(src="/javascripts/sections.js", type="text/javascript")
