@@ -53,9 +53,14 @@ function getSections(id, parse) {
 }
 
 function getSectionDefault(type) {
-  return {
+  let result = {
     type: type
   }
+  if (type === 'showcase') result.button = {
+    text: '',
+    link: ''
+  }
+  return result;
 }
 
 function getPages(id) {

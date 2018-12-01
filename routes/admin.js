@@ -49,6 +49,7 @@ router.get('/pages/edit/:id', function (req, res, next) {
   let products = helpers.products.get();
 
   _.forEach(sections, (s, id) => {
+    sections[id].id = id;
     if (s.type === 'showcase') {
       sections[id].product = products[s.productid];
     };

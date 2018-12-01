@@ -9,7 +9,7 @@ block content
           span(class="font-weight-light") Creating New: 
           span= section.type.replace(/^\w/, c => c.toUpperCase())
         div
-          button(type="reset", class="btn btn-outline-dark") Discard Changes
-          button(type="submit", class="btn btn-success ml-2") Save Changes
+          a.btn.btn-outline-dark(href="/admin/sections") Cancel
+          button(type="submit", class="btn btn-success ml-2") Finish
       hr
       include ./../includes/section-form

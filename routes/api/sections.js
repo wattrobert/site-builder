@@ -57,9 +57,14 @@ router.post('/:id/delete', (req, res) => {
 })
 
 function addSection(data, sections) {
-  var sectionids = _.sortBy(_.keys(sections));
+  var sectionids = _.sortBy(_.without(_.keys(sections), 'cart', 'checkout'));
   var nextid = Number(sectionids.pop()) + 1;
-  sections[nextid] = data;
+  sections[nextid] = helpers.parseRequest(data, {
+    button: {
+      text: '',
+      link: ''
+    }
+  });
   return sections;
 }
 

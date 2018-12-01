@@ -14,6 +14,15 @@
       "link": "https://www.google.com"
     }
   },
+  "2": {
+    "type": "showcase",
+    "name": "Smart Watch Showcase",
+    "productid": "1",
+    "button": {
+      "text": "Take my money!",
+      "link": "/cart"
+    }
+  },
   "cart": {
     "type": "cart",
     "name": "Cart Module"

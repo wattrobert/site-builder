@@ -5,26 +5,24 @@
     "nav": "none",
     "sections": [
       "0",
+      "2",
       "1"
     ]
   },
   "1": {
     "name": "cart",
-    "nav": "right",
     "path": "/cart",
+    "nav": "right",
     "sections": [
-      "cart",
-      "1",
-      "1"
+      "cart"
     ]
   },
   "2": {
     "name": "checkout",
-    "nav": false,
     "path": "/checkout",
+    "nav": "none",
     "sections": [
-      "checkout",
-      "cart"
+      "checkout"
     ]
   }
 }

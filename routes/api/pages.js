@@ -2,6 +2,7 @@ var express = require('express');
 var fs = require('fs');
 var _ = require('lodash');
 var router = express.Router();
+var helpers = require('./../../helpers');
 var pagesJson = __dirname + '/../../private/pages.json';
 var productsJson = __dirname + '/../../private/products.json';
 var sectionsJson = __dirname + '/../../private/sections.json';
@@ -68,12 +69,14 @@ router.get('/sections/refresh', (req, res) => {
       },
       sections: {}
     }
-    _.forEach(JSON.parse(fs.readFileSync(sectionsJson)), (val, key) => {
-      compileData.sections[key] = resolveSectionReferences(val, key);
-    });
+
+    helpers.sections.get(null, true).forEach((s) => {
+      compileData.sections[s.id] = s;
+    })
 
     res.send(compiledFunction(compileData));
   } catch (ex) {
+    console.log(ex);
     res.status(500).send();
   }
 })
