@@ -4,17 +4,26 @@ block layout
   body.admin-container
     nav.admin-navigation.p-2
       .sitebuilder-logo 
+        //- i.fa.fa-wrench.mr-1.text-primary
         span Site
         span.text-primary builder
       ul.nav.nav-pills.flex-column
         li.nav-item
-          a.nav-link(href="/admin/pages") Pages
+          a.nav-link(href="/admin/pages")
+            i.fa.fa-file-alt
+            span  Pages
         li.nav-item
-          a.nav-link(href="/admin/sections") Sections
+          a.nav-link(href="/admin/sections")
+            i.fa.fa-th-large
+            span  Sections
         li.nav-item
-          a.nav-link(href="/admin/products") Products
+          a.nav-link(href="/admin/products")
+            i.fa.fa-cube
+            span  Products
         li.nav-item
-          a.nav-link(href="/admin/company") Company
+          a.nav-link(href="/admin/company")
+            i.fa.fa-building
+            span  Company
 
     main.admin-main-content
       block content    

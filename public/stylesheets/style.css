@@ -6525,8 +6525,7 @@ a.anchor {
   padding: 0 0.5em; }
   .sitebuilder-logo span {
     font-size: 1.4em; }
-    .sitebuilder-logo span:nth-child(2) {
-      color: #007bff;
+    .sitebuilder-logo span:last-child {
       font-weight: bold; }
 
 .admin-navigation {

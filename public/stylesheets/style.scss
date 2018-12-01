@@ -285,8 +285,7 @@ a.anchor {
     span {
         font-size: 1.4em;
 
-        &:nth-child(2) {
-            color: $primary;
+        &:last-child {
             font-weight: bold;
         }
     }
