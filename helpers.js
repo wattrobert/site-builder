@@ -47,18 +47,24 @@ function getProductDefault() {
 
 function getSections(id, parse) {
   let data = JSON.parse(fs.readFileSync(sections));
-  return id ? parseSection(Object.assign(data[id], {
-    id: id
+  return id ? parseSection(Object.assign({
+    button: {
+      link: '',
+      text: ''
+    }
+  }, data[id], {
+    id: id,
+
   })) : parse ? parseSections(data) : data;
 }
 
 function getSectionDefault(type) {
   let result = {
-    type: type
-  }
-  if (type === 'showcase') result.button = {
-    text: '',
-    link: ''
+    type: type,
+    button: {
+      text: '',
+      link: ''
+    }
   }
   return result;
 }

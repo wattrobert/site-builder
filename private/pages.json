@@ -12,24 +12,24 @@
   "1": {
     "name": "cart",
     "path": "/cart",
-    "nav": "none",
+    "nav": "right",
     "sections": [
-      "cart"
+      "cart",
+      "5"
     ]
   },
   "2": {
     "name": "checkout",
     "path": "/checkout",
-    "nav": "right",
+    "nav": "none",
     "sections": [
-      "cart",
       "checkout"
     ]
   },
   "3": {
     "name": "about",
     "path": "/about-us",
-    "nav": "none",
+    "nav": "left",
     "sections": [
       "3"
     ]

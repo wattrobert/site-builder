@@ -35,6 +35,16 @@
     "productid": "1",
     "align": "right"
   },
+  "5": {
+    "button": {
+      "text": "Proceed to Checkout",
+      "link": "/checkout"
+    },
+    "type": "jumbotron",
+    "name": "Go to Checkout",
+    "title": "Finish my order",
+    "text": "Pay and complete your order on checkout."
+  },
   "cart": {
     "type": "cart",
     "name": "Cart Module"

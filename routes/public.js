@@ -13,7 +13,7 @@ function dynamicRoutes(req, res, next) {
   }));
 
   if (pathMatch.length) {
-    let page = Object.assign({
+    let page = Object.assign({}, {
       id: pathMatch[0]
     }, allPages[pathMatch[0]]);
 

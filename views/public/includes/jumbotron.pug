@@ -1,4 +1,8 @@
 section(class="jumbotron rounded-0 mb-0")
   .container.text-center
-    h1(class="display-4")= s.title
-    p(class="lead")= s.text
+    if (s.title)
+      h1(class="display-4")= s.title
+    if (s.text)
+      p(class="lead")= s.text
+    if s.button && (s.button.link && s.button.text)
+      a(class="btn btn-primary", href= s.button.link)= s.button.text
