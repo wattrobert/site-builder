@@ -6343,6 +6343,8 @@ body {
         body main h1,
         body main .h1 {
           font-size: 28px; } }
+  body.swal2-shown.swal2-height-auto {
+    height: 100% !important; }
 
 #HEADER {
   position: relative;

@@ -11,19 +11,19 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/products', function (req, res, next) {
-  res.render('admin/products/list', Object.assign({
+  res.render('admin/products/list', Object.assign({}, {
     products: helpers.products.get()
   }, helpers.admin.get()));
 });
 
 router.get('/products/create', function (req, res, next) {
-  res.render('admin/products/create', Object.assign({
+  res.render('admin/products/create', Object.assign({}, {
     product: helpers.products.default()
   }, helpers.admin.get()));
 });
 
 router.get('/products/edit/:id', function (req, res, next) {
-  res.render('admin/products/edit', Object.assign({
+  res.render('admin/products/edit', Object.assign({}, {
     product: helpers.products.get(req.params.id)
   }, helpers.admin.get()));
 });
@@ -55,20 +55,20 @@ router.get('/pages/edit/:id', function (req, res, next) {
     };
   })
 
-  res.render('admin/pages/edit', Object.assign({
+  res.render('admin/pages/edit', Object.assign({}, {
     sections: sections,
     page: helpers.pages.get(req.params.id)
   }, helpers.admin.get()));
 })
 
 router.get('/sections', function (req, res, next) {
-  res.render('admin/sections/list', Object.assign({
+  res.render('admin/sections/list', Object.assign({}, {
     sections: helpers.sections.get(null, true)
   }, helpers.admin.get()));
 });
 
 router.get('/sections/create/:type', function (req, res, next) {
-  res.render('admin/sections/create', Object.assign({
+  res.render('admin/sections/create', Object.assign({}, {
     section: helpers.sections.default(req.params.type)
   }, {
     sections: helpers.sections.get(),
@@ -77,7 +77,7 @@ router.get('/sections/create/:type', function (req, res, next) {
 })
 
 router.get('/sections/edit/:id', function (req, res, next) {
-  res.render('admin/sections/edit', Object.assign({
+  res.render('admin/sections/edit', Object.assign({}, {
     section: helpers.sections.get(req.params.id)
   }, {
     products: helpers.products.get()
@@ -85,7 +85,7 @@ router.get('/sections/edit/:id', function (req, res, next) {
 })
 
 router.get('/company', function (req, res, next) {
-  res.render('admin/company', Object.assign({
+  res.render('admin/company', Object.assign({}, {
     company: helpers.company.get()
   }, adminData));
 });

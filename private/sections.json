@@ -35,15 +35,13 @@
     "productid": "1",
     "align": "right"
   },
-  "5": {
-    "button": {
-      "text": "Proceed to Checkout",
-      "link": "/checkout"
-    },
-    "type": "jumbotron",
-    "name": "Go to Checkout",
-    "title": "Finish my order",
-    "text": "Pay and complete your order on checkout."
+  "6": {
+    "type": "shop",
+    "name": "Main Shopping Section",
+    "productids": [
+      "0",
+      "1"
+    ]
   },
   "cart": {
     "type": "cart",

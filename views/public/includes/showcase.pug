@@ -1,9 +1,9 @@
 section(class="container py-4")
   div(class="row align-items-center flex-nowrap" + ((s.align && s.align === "center") ? " flex-column" : ""))
-    div(class="col" +  (s.align === "center" ? "-auto" : "") + (s.align === "right" ? " order-2" : ""))
+    div(class="col" +  (s.align === "center" ? "-auto" : "-5") + (s.align === "right" ? " order-2" : ""))
       figure
         img(src= s.product.image, class="w-100")
-    div(class="col" +  (s.align === "center" ? "-auto" : "") + (s.align ? (" text-" + s.align) : " ") + (s.align === "right" ? " order-1" : ""))
+    div(class="col" +  (s.align === "center" ? "-auto" : "-7") + (s.align ? (" text-" + s.align) : " ") + (s.align === "right" ? " order-1" : ""))
       h3
         span= s.product.title
         small(class="text-success")  #{s.product.currency}#{s.product.price}

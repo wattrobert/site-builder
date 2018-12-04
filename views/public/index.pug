@@ -5,10 +5,15 @@ block content
     a(name= s.id)
     case s.type
       when "cart"
-        include ./includes/cart
+        #cart
+          include ./includes/cart
       when "checkout"
-        include ./includes/checkout
+        #checkout
+          include ./includes/checkout
       when "jumbotron"
         include ./includes/jumbotron
       when "showcase"
         include ./includes/showcase
+      when "shop"
+        #shop
+          include ./includes/shop

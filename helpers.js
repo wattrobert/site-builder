@@ -114,6 +114,16 @@ function parseSection(section) {
   if (section.type === 'product') {
     section.product = getProducts(section.productid);
   }
+  if (section.type === 'shop') {
+    let products = getProducts();
+    section.products = _.compact(_.map(section.productids, (pid) => {
+      let p = products[pid];
+      if (p) {
+        p.id = pid;
+        return p;
+      }
+    }));
+  }
   return section;
 }
 

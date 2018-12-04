@@ -1,3 +1,23 @@
-section(class="jumbotron rounded-0")
-  .container.text-center
-    h1(class="display-4") Shopping Cart
+.container.py-4
+  if (cart && cart.items && cart.items.length)
+    .row
+      .col-md-8.col-xl-9
+        .list-group
+          each item, i in cart.items
+            .list-group-item.d-flex.flex-nowrap.align-items-start
+              .w-25
+                img.img-thumbnail(src= item.image, alt= item.title)
+              .col
+                h4
+                  span.product-name= item.title
+                  p.lead= item.currency + item.price
+              button.btn.btn-link
+                i.fa.fa-trash-alt.text-danger(onClick="removeFromCart(" + i + ")")
+
+      .col-md-4.col-xl-3
+        h5.text-right 
+          span.float-left Subtotal 
+          span $#{cart.subtotal}
+        a.btn.btn-primary.btn-lg.btn-block(href="/checkout") Checkout
+
+    script(src="/javascripts/cart.js", type="text/javascript")
