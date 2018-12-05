@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var helpers = require('./../../helpers');
 var pug = require('pug');
-var path = require('path');
+var viewPath = __dirname + './../../views';
 
 router.post('/', (req, res) => {
   helpers.pages.create(req.body, (err) => {
@@ -27,7 +27,7 @@ router.post('/:id/delete', (req, res) => {
 
 router.get('/sections/refresh', (req, res) => {
   try {
-    var compiledFunction = pug.compileFile(path.join(app.get('views'), 'option.pug'))
+    var compiledFunction = pug.compileFile(viewPath + '/admin/includes/sortable-sections.pug')
     var compileData = {
       page: {
         sections: req.query.sections
@@ -42,6 +42,8 @@ router.get('/sections/refresh', (req, res) => {
     res.send(compiledFunction(compileData));
   } catch (ex) {
     throw (ex);
+    console.log(ex);
+    res.render('/error', ex);
   }
 })
 
