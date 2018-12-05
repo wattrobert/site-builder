@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var helpers = require('./../../helpers');
 var pug = require('pug');
+var path = require('path');
 
 router.post('/', (req, res) => {
   helpers.pages.create(req.body, (err) => {
@@ -26,7 +27,7 @@ router.post('/:id/delete', (req, res) => {
 
 router.get('/sections/refresh', (req, res) => {
   try {
-    var compiledFunction = pug.compileFile('views/admin/includes/sortable-sections.pug')
+    var compiledFunction = pug.compileFile(path.join(app.get('views'), 'option.pug'))
     var compileData = {
       page: {
         sections: req.query.sections
