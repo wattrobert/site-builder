@@ -40,8 +40,7 @@ router.get('/sections/refresh', (req, res) => {
 
     res.send(compiledFunction(compileData));
   } catch (ex) {
-    console.log(ex);
-    res.render('/error', ex);
+    throw (ex);
   }
 })
 
