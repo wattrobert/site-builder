@@ -1,3 +1,47 @@
-section(class="jumbotron rounded-0")
-  .container.text-center
-    h1(class="display-4") Checkout
+section.container.py-4
+  .row
+    .col-md-7.col-lg-8
+      ol.nav.nav-steps.nav-justified
+        li.nav-item
+          a.nav-link.complete(href="/cart") Cart
+        li.nav-item
+          a.nav-link.active(href="/checkout/shipping") Shipping
+        li.nav-item
+          a.nav-link(href="/checkout/billing") Billing
+        li.nav-item
+          a.nav-link(href="/checkout/confirm") Confirm
+      include address-form
+    .col-md-5.col-lg-4
+      h4= cart.items.length + ' item' + (cart.items.length === 1 ? ' ' : 's ') + ' in your cart'
+      hr
+      each item, i in cart.items
+        .d-flex.flex-nowrap.align-items-start
+          .w-25.checkout-item-img
+            img.img-thumbnail(src= item.image, alt= item.title)
+            span.badge.badge-secondary.checkout-item-qty 1
+          .col
+            h6
+              span.product-name= item.title
+              p.small= item.currency + item.price
+        hr
+      h6.text-right 
+          span.float-left Subtotal 
+          span $#{cart.subtotal}
+
+      h6.text-right 
+          span.float-left Shipping 
+          span --
+      h6.text-right 
+          span.float-left Tax 
+          span --
+      hr
+      h5.text-right 
+          span.float-left Total 
+          span $#{cart.subtotal}
+      hr
+      a.btn.btn-link.btn-block
+        span.text-primary Continue Shopping
+
+
+
+  script(src="/javascripts/shop.js", type="text/javascript")

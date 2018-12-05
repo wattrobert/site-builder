@@ -1,4 +1,7 @@
-.container.py-4
+section.container.py-4
+  if (!cart || (cart && cart.items && !cart.items.length))
+    .p-3.text-center
+      p.lead There are no items in your cart.
   if (cart && cart.items && cart.items.length)
     .row
       .col-md-8.col-xl-9
@@ -20,4 +23,4 @@
           span $#{cart.subtotal}
         a.btn.btn-primary.btn-lg.btn-block(href="/checkout") Checkout
 
-    script(src="/javascripts/cart.js", type="text/javascript")
+    script(src="/javascripts/shop.js", type="text/javascript")

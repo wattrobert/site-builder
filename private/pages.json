@@ -5,7 +5,6 @@
     "nav": "none",
     "sections": [
       "0",
-      "4",
       "1"
     ]
   },
@@ -23,14 +22,6 @@
     "nav": "none",
     "sections": [
       "checkout"
-    ]
-  },
-  "3": {
-    "name": "about",
-    "path": "/about-us",
-    "nav": "left",
-    "sections": [
-      "3"
     ]
   },
   "4": {

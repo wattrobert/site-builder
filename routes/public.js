@@ -8,28 +8,67 @@ function dynamicRoutes(req, res, next) {
   let sections = helpers.sections.get();
   let allPages = helpers.pages.get();
   let products = helpers.products.get();
+  let company = helpers.company.get();
+  let navItems = buildNavItems(allPages);
+  let cart = buildCart(req.cookies.cart, products);
+
   let pathMatch = _.keys(_.pickBy(allPages, {
     path: req.url
   }));
+
 
   if (pathMatch.length) {
     let page = Object.assign({}, {
       id: pathMatch[0]
     }, allPages[pathMatch[0]]);
 
-    page.navItems = buildNavItems(page, allPages);
-    page.company = helpers.company.get();
+    page.navItems = navItems;
+    page.company = company;
     page.sections = buildSections(page, sections, products);
-    page.cart = buildCart(req.cookies.cart, products)
+    page.cart = cart;
 
-    res.render('public/index', page)
-  } else {
-    res.render('public/404');
+    return res.render('public/index', page)
   }
 
+  let productId = checkProductPage(req.url, allPages);
+  if (productId) {
+    let page = Object.assign({
+      id: 'product',
+      navItems: navItems,
+      company: company,
+      cart: cart,
+      sections: [{
+        id: 'product',
+        type: 'product',
+        product: helpers.products.get(productId),
+      }]
+    });
+    return res.render('public/index', page);
+  }
+
+  return res.render('public/404');
 }
 
-function buildNavItems(page, pages) {
+function checkProductPage(path, pages) {
+  let shopPages = _.filter(pages, (p) => {
+    return p.sections.includes('shop');
+  });
+
+  if (shopPages.length) {
+    let pathMatch = _.filter(shopPages, (p) => {
+      return path.indexOf(p.path.split('/')[1]) > -1;
+    });
+    if (pathMatch && pathMatch.length) {
+      let split = path.split('/');
+      let productIdIndex = split.indexOf('product') + 1;
+      return split[productIdIndex];
+    }
+  }
+
+  return false;
+}
+
+function buildNavItems(pages) {
   return _.groupBy(_.filter(pages, (page) => {
     return page.nav !== 'none';
   }), 'nav');
@@ -42,24 +81,25 @@ function buildCart(cookie, products) {
     if (cartItems.length) {
       var cartItems = _.compact(_.map(cartItems, (p) => {
         let product = Object.assign({}, products[p]);
-        total += Number(product.price);
+        total += parseInt(product.price);
         product.id = p;
         return product;
       }));
-      total = String(total).split('.')[0] + '.' + String(total).split('.')[1].slice(0, 2);
     }
     return {
       items: cartItems,
-      subtotal: total
+      subtotal: helpers.formatMoney(total, 2, ".", ",")
     }
   } else {
     return {
       items: [],
-      subtotal: 0
+      subtotal: helpers.formatMoney(0, 2, ".", ",")
     }
   }
 
 }
+
+
 
 function buildSections(page, allSections, products) {
   return _.map(_.map(page.sections, (sectionid) => {

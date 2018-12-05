@@ -17,8 +17,8 @@ block layout
                   a(class="nav-link" href= navItem.path)= navItem.name.replace(/^\w/, c => c.toUpperCase())
                     if (navItem.sections.indexOf('cart') > -1)
                       .badge.cart-counter.badge-primary.ml-2= cart.items.length
-          .form-inline.ml-3
-            a(href="/admin", class="btn btn-sm btn-outline-primary") Admin
+          //- .form-inline.ml-3
+          //-   a(href="/admin", class="btn btn-sm btn-outline-primary") Admin
           if navItems.right && navItems.right.length
             ul(class="navbar-nav ml-auto")
               each navItem in navItems.right

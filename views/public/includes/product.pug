@@ -1,0 +1,12 @@
+section.container.py-4
+  .row
+    .col-md-4.col-lg-5
+      img.img-thumbnail(src= s.product.image)
+    .col-md-8.col-lg-7
+      h1.text-right
+        span.float-left= s.product.title
+        span.font-weight-light= s.product.currency + s.product.price
+      p= s.product.description
+      button.btn.btn-success(type="button", onClick="addToCart('" + s.product.id + "')") Add to Cart
+
+  script(src="/javascripts/shop.js", type="text/javascript")

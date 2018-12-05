@@ -1,5 +1,6 @@
 @import "./variables";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./nav_steps";
 $product-list-gutter-width: $grid-gutter-width/2;
 
 html,
@@ -79,6 +80,25 @@ body {
 a.anchor {
     position: absolute;
     top: -5em;
+}
+
+.product-card-link {
+
+    &,
+    &:hover {
+        color: $dark;
+        text-decoration: none;
+    }
+}
+
+.checkout-item-img {
+    position: relative;
+
+    .checkout-item-qty {
+        position: absolute;
+        right: -5px;
+        top: -5px;
+    }
 }
 
 .card-actions {

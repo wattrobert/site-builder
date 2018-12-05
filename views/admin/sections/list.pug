@@ -25,10 +25,12 @@ block content
                   .section-snapshot
                     case s.type
                       when "cart"
-                        include ./../../public/includes/cart
+                        h1.display-4.text-center.py-4 CART
                       when "checkout"
-                        include ./../../public/includes/checkout
+                        h1.display-4.text-center.py-4 CHECKOUT
                       when "jumbotron"
                         include ./../../public/includes/jumbotron
                       when "showcase"
                         include ./../../public/includes/showcase
+                      when "shop"
+                        h1.display-4.text-center.py-4 SHOP

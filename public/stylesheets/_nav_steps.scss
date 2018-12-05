@@ -1,0 +1,113 @@
+$nav-steps-border-width: 2px;
+$nav-steps-border-color: $body-bg;
+$nav-steps-border-radius: $nav-tabs-border-radius;
+$nav-steps-background-color:$light;
+$nav-steps-active-background-color: $primary;
+$nav-steps-active-color: $light;
+$nav-steps-height: 24px;
+
+.nav-steps {
+  overflow: hidden;
+  margin-bottom: 1em;
+  // border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+
+  // .nav-item {
+  //     margin-bottom: -$nav-tabs-border-width;
+  // }
+
+  .nav-item {
+    position: relative;
+
+    &:not(:last-child) {
+      .nav-link {
+        &:before {
+          content: "";
+          z-index: 1;
+          position: absolute;
+          right: -12px;
+          top: -4px;
+          width: 0;
+          height: 0;
+          border-top: $nav-steps-height solid transparent;
+          border-bottom: $nav-steps-height solid transparent;
+          border-left: $nav-steps-height / 2 solid $nav-steps-border-color;
+        }
+
+        &:after {
+          content: "";
+          z-index: 2;
+          position: absolute;
+          right: - 10px;
+          top: -4px;
+          width: 0;
+          height: 0;
+          border-top: $nav-steps-height solid transparent;
+          border-bottom: $nav-steps-height solid transparent;
+          border-left: $nav-steps-height / 2 solid $nav-steps-background-color;
+        }
+      }
+    }
+
+    &:first-child {
+      .nav-link {
+        @include border-left-radius($nav-steps-border-radius);
+      }
+    }
+
+    &:last-child {
+      .nav-link {
+        @include border-right-radius($nav-steps-border-radius);
+      }
+    }
+
+    .nav-link {
+      background-color: $nav-steps-background-color;
+
+      &.complete {
+        color: $nav-steps-active-color;
+        background-color: $secondary;
+
+        &:after {
+          border-left-color: $secondary;
+        }
+      }
+
+      &.active {
+        color: $nav-steps-active-color;
+        background-color: $nav-steps-active-background-color;
+
+        &:after {
+          border-left-color: $nav-steps-active-background-color;
+        }
+      }
+
+    }
+
+    // border: $nav-tabs-border-width solid transparent;
+    // @include border-top-radius($nav-tabs-border-radius);
+
+    // @include hover-focus {
+    // border-color: $nav-tabs-link-hover-border-color;
+    // }
+
+    // &.disabled {
+    // color: $nav-link-disabled-color;
+    // background-color: transparent;
+    // border-color: transparent;
+    // }
+  }
+
+  .nav-link.active,
+  .nav-item.show .nav-link {
+    // color: $nav-tabs-link-active-color;
+    // background-color: $nav-tabs-link-active-bg;
+    // border-color: $nav-tabs-link-active-border-color;
+  }
+
+  .dropdown-menu {
+    // // Make dropdown border overlap tab border
+    // margin-top: -$nav-tabs-border-width;
+    // // Remove the top rounded corners here since there is a hard edge above the menu
+    // @include border-top-radius(0);
+  }
+}

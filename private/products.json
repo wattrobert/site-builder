@@ -5,12 +5,5 @@
     "price": "159.99",
     "description": "The Calphalon Auto-Speed Blender senses the mixture in the jar and automatically adjusts power to maintain blade speed for perfectly blended results. Dual-direction blades and a 1,100-watt motor easily pulverize the contents. The 2-liter Tritan jar is dishwasher.",
     "image": "/images/blender.jpg"
-  },
-  "1": {
-    "title": "Smart Watch Band",
-    "currency": "$",
-    "price": "15.99",
-    "description": "For Apple Watch Band 42mm/38mm/44mm/40mm: Top stainless steel mesh loop apple watch strap for iWatch Sports Edition series 3 2 1. One Year Warranty for apple watch milanese loop. Feel free to contact for any quality issues.",
-    "image": "/images/watch.png"
   }
 }

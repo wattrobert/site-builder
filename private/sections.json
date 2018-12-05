@@ -25,16 +25,6 @@
     "title": "What is Site Builder?",
     "text": "It's a lightening fast way to start selling your ResponseCRM products. Create working store in seconds."
   },
-  "4": {
-    "button": {
-      "text": "Take my Money!",
-      "link": "/cart"
-    },
-    "type": "showcase",
-    "name": "Smart Watch",
-    "productid": "1",
-    "align": "right"
-  },
   "shop": {
     "type": "shop",
     "name": "Main Shopping Section",

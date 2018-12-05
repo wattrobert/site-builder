@@ -6312,6 +6312,52 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
+.nav-steps {
+  overflow: hidden;
+  margin-bottom: 1em; }
+  .nav-steps .nav-item {
+    position: relative; }
+    .nav-steps .nav-item:not(:last-child) .nav-link:before {
+      content: "";
+      z-index: 1;
+      position: absolute;
+      right: -12px;
+      top: -4px;
+      width: 0;
+      height: 0;
+      border-top: 24px solid transparent;
+      border-bottom: 24px solid transparent;
+      border-left: 12px solid #fff; }
+    .nav-steps .nav-item:not(:last-child) .nav-link:after {
+      content: "";
+      z-index: 2;
+      position: absolute;
+      right: -10px;
+      top: -4px;
+      width: 0;
+      height: 0;
+      border-top: 24px solid transparent;
+      border-bottom: 24px solid transparent;
+      border-left: 12px solid #f8f9fa; }
+    .nav-steps .nav-item:first-child .nav-link {
+      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem; }
+    .nav-steps .nav-item:last-child .nav-link {
+      border-top-right-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem; }
+    .nav-steps .nav-item .nav-link {
+      background-color: #f8f9fa; }
+      .nav-steps .nav-item .nav-link.complete {
+        color: #f8f9fa;
+        background-color: #6c757d; }
+        .nav-steps .nav-item .nav-link.complete:after {
+          border-left-color: #6c757d; }
+      .nav-steps .nav-item .nav-link.active {
+        color: #f8f9fa;
+        background-color: #007bff; }
+        .nav-steps .nav-item .nav-link.active:after {
+          border-left-color: #007bff; }
+
 html,
 body {
   max-width: 100vw; }
@@ -6364,6 +6410,17 @@ body {
 a.anchor {
   position: absolute;
   top: -5em; }
+
+.product-card-link, .product-card-link:hover {
+  color: #343a40;
+  text-decoration: none; }
+
+.checkout-item-img {
+  position: relative; }
+  .checkout-item-img .checkout-item-qty {
+    position: absolute;
+    right: -5px;
+    top: -5px; }
 
 .card-actions {
   position: absolute;

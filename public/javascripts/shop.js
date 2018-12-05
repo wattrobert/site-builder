@@ -4,10 +4,11 @@ function addToCart(productid) {
     cart = cart.split(',');
     cart.push(productid);
     setCookie('cart', cart.join(','));
+    updateCartCount(cart.length);
   } else {
     setCookie('cart', productid, 5);
+    updateCartCount(1);
   }
-  updateCartCount(cart.length);
   toast({
     type: 'success',
     title: 'Item added to cart!'
