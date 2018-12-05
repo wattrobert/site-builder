@@ -43,11 +43,11 @@
       "1"
     ]
   },
-  "cart": {
+  "8": {
     "type": "cart",
     "name": "Cart Module"
   },
-  "checkout": {
+  "9": {
     "type": "checkout",
     "name": "Checkout Module"
   }

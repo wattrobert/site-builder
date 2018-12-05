@@ -6,8 +6,10 @@ let pages = __dirname + '/private/pages.json';
 let company = __dirname + '/private/company.json';
 let admin = __dirname + '/private/admin.json';
 let theme = __dirname + '/private/theme.json';
+let hiddenIds = ['cart', 'checkout', 'shop'];
 
 module.exports = {
+  nextId: getNextId,
   parseRequest: parseRequest,
   products: {
     get: getProducts,
@@ -18,7 +20,10 @@ module.exports = {
     default: getSectionDefault
   },
   pages: {
-    get: getPages
+    get: getPages,
+    create: createPage,
+    update: updatePage,
+    delete: deletePage
   },
   company: {
     get: getCompany,
@@ -30,6 +35,11 @@ module.exports = {
   theme: {
     get: getTheme
   }
+}
+
+function getNextId(data) {
+  let ids = _.sortBy(_.without(_.keys(data), hiddenIds));
+  return String(Number(ids.pop()) + 1);
 }
 
 function getProducts(id) {
@@ -74,6 +84,39 @@ function getPages(id) {
   return id ? Object.assign(data[id], {
     id: id
   }) : data;
+}
+
+function createPage(data, callback) {
+  let allPages = getPages();
+
+  let newPage = Object.assign({}, data);
+  newPage.sections = newPage.sections.split(',');
+
+  let newData = Object.assign({}, allPages);
+  newData[getNextId(allPages)] = newPage;
+
+  fs.writeFile(pages, JSON.stringify(newData, null, 2), callback);
+}
+
+function updatePage(id, data, callback) {
+  let allPages = getPages();
+
+  let updatedPage = Object.assign({}, data);
+  updatedPage.sections = updatedPage.sections.split(',');
+
+  let newData = Object.assign({}, allPages);
+  newData[id] = updatedPage;
+
+  fs.writeFile(pages, JSON.stringify(newData, null, 2), callback);
+}
+
+function deletePage(id, callback) {
+  let allPages = getPages();
+
+  let newData = Object.assign({}, allPages);
+  newData = _.omit(newData, id);
+
+  fs.writeFile(pages, JSON.stringify(newData, null, 2), callback);
 }
 
 function getCompany() {
