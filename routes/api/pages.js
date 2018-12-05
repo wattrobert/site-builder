@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var helpers = require('./../../helpers');
 var pug = require('pug');
-var viewPath = __dirname + './../../views';
+var viewPath = __dirname + '/../../views';
 
 router.post('/', (req, res) => {
   helpers.pages.create(req.body, (err) => {
