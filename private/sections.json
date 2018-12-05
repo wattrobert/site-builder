@@ -35,7 +35,7 @@
     "productid": "1",
     "align": "right"
   },
-  "6": {
+  "shop": {
     "type": "shop",
     "name": "Main Shopping Section",
     "productids": [
@@ -43,11 +43,11 @@
       "1"
     ]
   },
-  "8": {
+  "cart": {
     "type": "cart",
     "name": "Cart Module"
   },
-  "9": {
+  "checkout": {
     "type": "checkout",
     "name": "Checkout Module"
   }
