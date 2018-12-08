@@ -4,14 +4,13 @@
     "path": "/",
     "nav": "none",
     "sections": [
-      "0",
-      "1"
+      "0"
     ]
   },
   "1": {
     "name": "cart",
     "path": "/cart",
-    "nav": "right",
+    "nav": "none",
     "sections": [
       "cart"
     ]
@@ -27,7 +26,7 @@
   "4": {
     "name": "shop",
     "path": "/shop",
-    "nav": "left",
+    "nav": "none",
     "sections": [
       "shop"
     ]

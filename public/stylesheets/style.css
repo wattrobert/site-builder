@@ -4,6 +4,7 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css?family=Oswald:300,500,700|Yesteryear");
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -6357,6 +6358,99 @@ a.text-dark:hover, a.text-dark:focus {
         background-color: #007bff; }
         .nav-steps .nav-item .nav-link.active:after {
           border-left-color: #007bff; }
+
+.diet-jumbotron {
+  background-color: #74C6FC;
+  background-position: center top;
+  background-size: cover;
+  position: relative;
+  min-height: calc(100vh - 2.5em); }
+  .diet-jumbotron .layer-0 {
+    background-image: url("/images/beach-woman.jpg");
+    background-size: cover;
+    background-position: -300px 70px;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0; }
+  .diet-jumbotron .layer-1 {
+    font-size: 25px; }
+    .diet-jumbotron .layer-1 .container-fluid {
+      padding-top: 25px; }
+  .diet-jumbotron h1 {
+    font-size: 1em;
+    max-height: 6.5em;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+    font-family: 'Oswald', sans-serif; }
+    .diet-jumbotron h1 .pre-header {
+      font-weight: 300;
+      text-transform: uppercase;
+      transform: translateX(-2.5em); }
+      .diet-jumbotron h1 .pre-header span {
+        display: block; }
+        .diet-jumbotron h1 .pre-header span:nth-child(1) {
+          color: white;
+          letter-spacing: 2.5px; }
+        .diet-jumbotron h1 .pre-header span:nth-child(2) {
+          color: #5C157A;
+          font-weight: 500; }
+    .diet-jumbotron h1 .connector {
+      text-shadow: 1px 3px 7px rgba(0, 0, 0, 0.5);
+      color: white;
+      font-family: 'Yesteryear', cursive;
+      font-size: 1.6em;
+      transform: translateX(-2em); }
+    .diet-jumbotron h1 .main-header {
+      letter-spacing: -5px;
+      position: relative;
+      top: -0.8em;
+      color: #5C157A;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 2.5em;
+      transform: rotate(-3deg) skew(-10deg, 0deg) scaleX(1.2); }
+      .diet-jumbotron h1 .main-header span:nth-child(2) {
+        margin-left: 0.1em;
+        font-size: 1.5em; }
+  .diet-jumbotron .lead {
+    text-align: center;
+    font-size: 0.8em;
+    margin-bottom: 150px; }
+  .diet-jumbotron #step1 {
+    margin-bottom: 50px; }
+    .diet-jumbotron #step1 .card-header-graphic {
+      position: absolute;
+      right: -15px;
+      top: -50px; }
+
+@media (min-width: 576px) {
+  .diet-jumbotron .layer-1 {
+    font-size: 20px; }
+  .diet-jumbotron .layer-0 {
+    background-position: -100px 100px; } }
+
+@media (min-width: 768px) {
+  .diet-jumbotron .layer-1 {
+    font-size: 30px; }
+    .diet-jumbotron .layer-1 > .container-fluid {
+      max-width: 992px;
+      margin: 0 auto; }
+  .diet-jumbotron .layer-0 {
+    background-position: -100px 200px; } }
+
+@media (min-width: 992px) {
+  .diet-jumbotron .layer-1 {
+    font-size: 35px; }
+    .diet-jumbotron .layer-1 > .container-fluid {
+      max-width: 1200px; } }
+
+@media (min-width: 1200px) {
+  .diet-jumbotron .layer-1 {
+    font-size: 30px; }
+  .diet-jumbotron .layer-0 {
+    background-position: left center; } }
 
 html,
 body {

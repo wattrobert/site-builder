@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,500,700|Yesteryear');
+
+
+
+.diet-jumbotron {
+  background-color: #74C6FC;
+  background-position: center top;
+  background-size: cover;
+  position: relative;
+  min-height: calc(100vh - 2.5em);
+
+  .layer-0 {
+    background-image: url('/images/beach-woman.jpg');
+    background-size: cover;
+    background-position: -300px 70px;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  .layer-1 {
+    font-size: 25px;
+
+
+    .container-fluid {
+      padding-top: 25px;
+    }
+  }
+
+  h1 {
+    font-size: 1em;
+    max-height: 6.5em;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+    font-family: 'Oswald', sans-serif;
+
+    .pre-header {
+      font-weight: 300;
+      text-transform: uppercase;
+      transform: translateX(-2.5em);
+
+      span {
+        display: block;
+
+        &:nth-child(1) {
+          color: white;
+          letter-spacing: 2.5px;
+        }
+
+        &:nth-child(2) {
+          color: #5C157A;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .connector {
+      text-shadow: 1px 3px 7px rgba(0, 0, 0, 0.5);
+      color: white;
+      font-family: 'Yesteryear', cursive;
+      font-size: 1.6em;
+      transform: translateX(-2em)
+    }
+
+    .main-header {
+      letter-spacing: -5px;
+      position: relative;
+      top: -0.8em;
+      color: #5C157A;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 2.5em;
+      transform: rotate(-3deg) skew(-10deg, -0deg) scaleX(1.2);
+
+      span {
+        &:nth-child(2) {
+          margin-left: 0.1em;
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+
+  .lead {
+    text-align: center;
+    font-size: 0.8em;
+    margin-bottom: 150px;
+  }
+
+  #step1 {
+    margin-bottom: 50px;
+
+    .card-header-graphic {
+      position: absolute;
+      right: -15px;
+      top: -50px;
+    }
+  }
+}
+
+.diet-jumbotron {
+  @include media-breakpoint-up(sm) {
+    .layer-1 {
+      font-size: 20px;
+    }
+
+    .layer-0 {
+      background-position: -100px 100px;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .layer-1 {
+      font-size: 30px;
+
+      >.container-fluid {
+        max-width: 992px;
+        margin: 0 auto;
+      }
+    }
+
+    .layer-0 {
+      background-position: -100px 200px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .layer-1 {
+      font-size: 35px;
+
+      >.container-fluid {
+        max-width: 1200px;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .layer-1 {
+      font-size: 30px;
+    }
+
+    .layer-0 {
+      background-position: left center;
+    }
+  }
+}

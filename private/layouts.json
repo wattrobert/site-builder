@@ -1,0 +1,54 @@
+{
+  "home.layout": {
+    "homeLayout": {
+      "sections": [{
+          "columns": ["x"]
+        }, {
+          "layers": [{
+              "columns": ["columnId1", "columnId2"],
+              "depth": 1
+            },
+            {
+              "depth": 0,
+              "columns": ["background12"]
+            }
+          ]
+        }
+
+      ]
+    }
+  },
+  "columns": {
+    "background12": {
+      "order": 0,
+      "width": 100,
+      "components": "bikini-girl-bg"
+    },
+    "columnId1": {
+      "order": {
+        "0": 1,
+        "sm": 0
+      },
+      "width": {
+        "0": 100,
+        "sm": 70,
+        "md": 60,
+        "lg": 50
+      },
+      "components": ["0", "1"]
+    },
+    "columnId2": {
+      "order": {
+        "0": 1,
+        "sm": 0
+      },
+      "width": {
+        "0": 100,
+        "sm": 30,
+        "md": 40,
+        "lg": 50
+      },
+      "components": ["checkout-shipping"]
+    }
+  }
+}

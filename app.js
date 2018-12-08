@@ -4,9 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
-var fs = require('fs');
-var pagesJson = __dirname + '/private/pages.json';
-
 var publicRouter = require('./routes/public');
 var adminRouter = require('./routes/admin');
 var productsApi = require('./routes/api/products');
@@ -41,6 +38,25 @@ app.use('/api/products', productsApi);
 app.use('/api/company', companyApi);
 app.use('/api/pages', pagesApi);
 app.use('/api/sections', sectionsApi);
+app.get('/api/pages/sections/refresh', (req, res) => {
+  try {
+    var compiledFunction = pug.compileFile(path.join(app.get('views'), 'option.pug'))
+    var compileData = {
+      page: {
+        sections: req.query.sections
+      },
+      sections: {}
+    }
+
+    helpers.sections.get(null, true).forEach((s) => {
+      compileData.sections[s.id] = s;
+    })
+
+    res.send(compiledFunction(compileData));
+  } catch (ex) {
+    throw (ex);
+  }
+})
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

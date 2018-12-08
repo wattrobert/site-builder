@@ -1,3 +1,14 @@
+window.onload = function () {
+  var itemRemoved = getCookie('removeload');
+  if (itemRemoved) {
+    toast({
+      type: 'success',
+      title: 'Item removed!'
+    })
+    setCookie('removeload', 'false');
+  }
+}
+
 function addToCart(productid) {
   var cart = getCookie('cart');
   if (cart) {
@@ -6,7 +17,7 @@ function addToCart(productid) {
     setCookie('cart', cart.join(','));
     updateCartCount(cart.length);
   } else {
-    setCookie('cart', productid, 5);
+    setCookie('cart', productid);
     updateCartCount(1);
   }
   toast({
@@ -16,8 +27,8 @@ function addToCart(productid) {
 }
 
 function removeFromCart(index) {
-  swal({
-      title: 'Are you sure?',
+  swalert({
+      title: 'Remove item?',
       type: 'question',
       confirmButtonText: 'Remove',
       showCancelButton: true
@@ -29,6 +40,7 @@ function removeFromCart(index) {
           cart = cart.split(',');
           cart.splice(index, 1);
           setCookie('cart', cart.join(','));
+          setCookie('removeload', 'true');
         }
         window.location.reload();
       }
